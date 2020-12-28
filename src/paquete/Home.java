@@ -1,5 +1,6 @@
 package paquete;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,7 @@ public class Home extends JPanel {
 	public Home() {
 		setLayout(null);
 		presionado = false;
+		setBackground(Color.orange);
 		configurarLabels();
 		configurarBoton();
 		add(titulo);
@@ -39,7 +41,6 @@ public class Home extends JPanel {
 		integrantes = new JLabel("Integrantes: Delnovio Alarcón - Felipe Opazo - Vicente Matus");
 		integrantes.setBounds(165,170,450,60);
 		integrantes.setFont(new Font("serif",Font.BOLD,16));
-	
 	}
 	private void configurarBoton() {
 		boton = new JButton("Pincha aquí para ingresar al programa");
@@ -48,8 +49,7 @@ public class Home extends JPanel {
 		
 		boton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				presionado = true;
+				System.out.println("has dado click en el boton");
 			}
 		});
 		
