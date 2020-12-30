@@ -2,15 +2,17 @@ package paquete;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuPrincipal extends JPanel{
+public class MenuPrincipal extends JPanel implements ActionListener{
 	private JLabel titulo,descripcion,icono;
-	private JButton boton1,boton2,boton3,boton4;
+	public JButton boton1,boton2,boton3;
 	
 	public MenuPrincipal() {
 		setLayout(null);
@@ -35,21 +37,20 @@ public class MenuPrincipal extends JPanel{
 		add(icono);
 	}
 	private void cargarBotones() {
-		boton1 = new JButton("Inicio");
+		boton1 = new JButton("Administrador de departamentos");
 		boton1.setBounds(270,220,270,25);
 		
-		boton2 = new JButton("Administrador de departamentos");
+		boton2 = new JButton("Administrador de trabajadores");
 		boton2.setBounds(270,260,270,25);
-		boton3 = new JButton("Administrador de trabajadores");
+		boton3 = new JButton("Información general de la empresa");
 		boton3.setBounds(270,300,270,25);
 		
-		boton4 = new JButton("Información general de la empresa");
-		boton4.setBounds(270,340,270,25);
 		add(boton1);
 		add(boton2);
 		add(boton3);
-		add(boton4);
 		
+	}
+	public void actionPerformed(ActionEvent e) {
 		
 	}
 	
