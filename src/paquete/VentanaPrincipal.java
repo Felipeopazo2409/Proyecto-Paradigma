@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 public class VentanaPrincipal extends JFrame  {
 	private MenuPrincipal menu;
 	private AdministracionDepartamentos admin;
+	private PanelTrabajador panel_trabajador;
 	private JScrollPane scrollPaneles;
 	public VentanaPrincipal() {
 	
@@ -24,22 +25,28 @@ public class VentanaPrincipal extends JFrame  {
 		
 		menu = new MenuPrincipal();
 		admin = new AdministracionDepartamentos();
+		panel_trabajador = new PanelTrabajador();
 		scrollPaneles = new JScrollPane();
 		scrollPaneles.setBounds(1,1,779,500);
 		add(scrollPaneles);
+		
 		scrollPaneles.setViewportView(menu);
 		
 		menu.boton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cargarPanel(admin);
+				scrollPaneles.setViewportView(admin);
 			}
 		});
 		
+		menu.boton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPaneles.setViewportView(panel_trabajador);
+			}
+		});
+		
+		
 	}
 	
-	private void cargarPanel(AdministracionDepartamentos admin) {
-		scrollPaneles.setViewportView(admin);
-	}
 	
 	
 }

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class AdministracionDepartamentos extends JPanel{
 	private JLabel titulo,icon;
-	private JButton ingresar,eliminar,mostrarInformacion;
+	public JButton ingresar,eliminar,mostrarInformacion,volver_menu;
 	public AdministracionDepartamentos() {
 		setLayout(null);
 		setBackground(Color.orange);
@@ -38,11 +38,15 @@ public class AdministracionDepartamentos extends JPanel{
 		mostrarInformacion = new JButton("Mostrar Información");
 		mostrarInformacion.setBounds(280,270,250,25);
 		
+		volver_menu = new JButton("Volver al menú principal");
+		volver_menu.setBounds(280,320,250,25);
 		
 		
+
 		add(ingresar);
 		add(eliminar);
 		add(mostrarInformacion);
+		add(volver_menu);
 	}
 	
 	
