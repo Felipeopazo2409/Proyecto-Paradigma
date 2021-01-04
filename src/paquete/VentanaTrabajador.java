@@ -22,6 +22,7 @@ public class VentanaTrabajador extends JFrame{
 		setVisible(false);
 		Inicializar();
 		navegacion();
+		volver_atras();
 	}
 	private void Inicializar() {
 		 scrollpane = new JScrollPane();
@@ -65,6 +66,13 @@ public class VentanaTrabajador extends JFrame{
 		panel.generar_liquidacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(liquidacion);
+			}
+		});
+	}
+	private void volver_atras() {
+		insertar.cancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(panel);
 			}
 		});
 	}

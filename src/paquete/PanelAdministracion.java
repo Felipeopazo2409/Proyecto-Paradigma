@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 public class PanelAdministracion extends JPanel{
 	private JLabel titulo,icon;
 	public JButton ingresar,eliminar,mostrarInformacion,volver_menu;
-	private JScrollPane scrollpane;
 	public PanelAdministracion() {
 		setLayout(null);
 		setBackground(Color.orange);

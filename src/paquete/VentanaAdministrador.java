@@ -24,6 +24,7 @@ public class VentanaAdministrador extends JFrame {
 		 scrollpane.setViewportView(admin);
 		 add(scrollpane);
 		 navegacion();
+		 volver_atras();
 		 
 	}
 	public void navegacion() {
@@ -53,9 +54,15 @@ public class VentanaAdministrador extends JFrame {
 			}
 		});
 
-		
-		//Pincho Boton para volver al menu admin
+	}
+	
+	private void volver_atras() {
 		insertar.guardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(admin);
+			}
+		});
+		eliminar.cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(admin);
 			}
