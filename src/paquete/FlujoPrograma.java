@@ -8,7 +8,7 @@ public class FlujoPrograma {
 	public VentanaAdministrador ventana_admin;
 	public VentanaTrabajador ventana_trabajadores;
 	public VentanaInformacion ventana_informacion_general;
-	public VentanaNavegacion ventana_navegacion;
+	
 	public FlujoPrograma() {
 		CrearVentanas();
 		funcionalidades_botones_ventana_main();
@@ -21,7 +21,6 @@ public class FlujoPrograma {
 		ventana_admin = new VentanaAdministrador();
 		ventana_trabajadores = new VentanaTrabajador();
 		ventana_informacion_general = new VentanaInformacion();
-		ventana_navegacion = new VentanaNavegacion();
 	}
 	
 	

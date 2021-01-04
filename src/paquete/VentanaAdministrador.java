@@ -12,6 +12,7 @@ public class VentanaAdministrador extends JFrame {
 	public MenuPrincipal menu;
 	public PanelInsertarDepto insertar;
 	public PanelEliminarDepto eliminar;
+	public PanelMostrarDepto mostrar_info;
 	public VentanaAdministrador() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,6 +29,7 @@ public class VentanaAdministrador extends JFrame {
 	public void navegacion() {
 		insertar = new PanelInsertarDepto();
 		eliminar = new PanelEliminarDepto();
+		mostrar_info = new PanelMostrarDepto();
 		//Pincho oton para insertar un nuevo departamento
 		admin.ingresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,6 +45,13 @@ public class VentanaAdministrador extends JFrame {
 			}
 		});
 		
+		//pincho boton para mostrar informacion de todos los departamentos
+		
+		admin.mostrarInformacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(mostrar_info);
+			}
+		});
 
 		
 		//Pincho Boton para volver al menu admin

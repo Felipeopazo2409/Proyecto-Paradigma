@@ -30,7 +30,7 @@ public class PanelInsertarDepto extends JPanel{
 		icon = new JLabel(new ImageIcon("logo.png"));
 		icon.setBounds(0,0,150,150);
 		
-		n_depto = new JLabel("N� Depto");
+		n_depto = new JLabel("N Depto");
 		n_depto.setBounds(190,150,150,40);
 		n_depto.setFont(new Font("serif",Font.PLAIN,20));
 		
@@ -42,7 +42,7 @@ public class PanelInsertarDepto extends JPanel{
 		numero.setBounds(190,250,250,40);
 		numero.setFont(new Font("serif",Font.PLAIN,20));
 		
-		mensaje = new JLabel("Se ha guardado la informaci�n exitosamente");
+		mensaje = new JLabel("Se ha guardado la información exitosamente");
 		mensaje.setBounds(220,10,400,40);
 		mensaje.setFont(new Font("serif",Font.PLAIN,20));
 		add(titulo);
