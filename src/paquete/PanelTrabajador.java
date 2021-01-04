@@ -12,18 +12,13 @@ import javax.swing.JScrollPane;
 public class PanelTrabajador extends JPanel {
 	 private JLabel titulo,icon;
 	 public JButton ingresar,modificar,eliminar,volver_menu,consultar_datos,generar_liquidacion;
-	 private JScrollPane scrollpane;
 	 public PanelTrabajador() {
 		 setLayout(null);
 		 setBackground(Color.orange);
-		 
-		 scrollpane = new JScrollPane();
-		 scrollpane.setBounds(1,1,779,500);
-		 
+		
 		 cargarComponentesLabel();
 		 CargarBotones();
 		 
-		 add(scrollpane);
 	 }
 	 public void cargarComponentesLabel() {
 		titulo = new JLabel("Administrador Trabajadores");
@@ -36,7 +31,7 @@ public class PanelTrabajador extends JPanel {
 		add(icon);
 	 }
 	 private void CargarBotones() {
-			ingresar = new JButton("Añadir Trabajador");
+			ingresar = new JButton("AÃ±adir Trabajador");
 			ingresar.setBounds(280,170,250,25);
 			
 			modificar = new JButton("Modificar Trabajador");
@@ -48,9 +43,9 @@ public class PanelTrabajador extends JPanel {
 			consultar_datos = new JButton("Consultar Datos de trabajadores");
 			consultar_datos.setBounds(280,320,250,25);
 			
-			generar_liquidacion = new JButton("Generar Liquidacion de sueldo");
+			generar_liquidacion = new JButton("Generar LiquidaciÃ³n de sueldo");
 			generar_liquidacion.setBounds(280,370,250,25);
-			volver_menu = new JButton("Volver al menú principal");
+			volver_menu = new JButton("Volver al menÃº principal");
 			volver_menu.setBounds(280,420,250,25);
 			add(ingresar);
 			add(eliminar);

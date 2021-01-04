@@ -7,13 +7,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
-public class AdministracionDepartamentos extends JPanel{
+public class PanelAdministracion extends JPanel{
 	private JLabel titulo,icon;
 	public JButton ingresar,eliminar,mostrarInformacion,volver_menu;
-	public AdministracionDepartamentos() {
+	private JScrollPane scrollpane;
+	public PanelAdministracion() {
 		setLayout(null);
 		setBackground(Color.orange);
+		setVisible(true);
 		CargarComponentesLabel();
 		CargarBotones();
 	}
@@ -24,31 +27,26 @@ public class AdministracionDepartamentos extends JPanel{
 		
 		icon = new JLabel(new ImageIcon("logo.png"));
 		icon.setBounds(0,0,150,150);
-		
 		add(titulo);
 		add(icon);
 	}
 	private void CargarBotones() {
-		ingresar = new JButton("Añadir Departamento");
+		ingresar = new JButton("AÃ±adir Departamento");
 		ingresar.setBounds(280,170,250,25);
-		
+				
 		eliminar = new JButton("Eliminar Departamento");
 		eliminar.setBounds(280,220,250,25);
 		
-		mostrarInformacion = new JButton("Mostrar Información");
+		mostrarInformacion = new JButton("Mostrar InformaciÃ³n");
 		mostrarInformacion.setBounds(280,270,250,25);
 		
-		volver_menu = new JButton("Volver al menú principal");
+		volver_menu = new JButton("Volver al menÃº principal");
 		volver_menu.setBounds(280,320,250,25);
 		
-		
-
 		add(ingresar);
 		add(eliminar);
 		add(mostrarInformacion);
 		add(volver_menu);
 	}
 	
-	
 }
-

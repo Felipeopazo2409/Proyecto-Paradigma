@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuPrincipal extends JPanel implements ActionListener{
+public class MenuPrincipal extends JPanel {
 	private JLabel titulo,descripcion,icono;
 	public JButton boton1,boton2,boton3;
 	
@@ -22,7 +22,7 @@ public class MenuPrincipal extends JPanel implements ActionListener{
 	}
 	
 	private void cargarComponentesLabel() {
-		titulo = new JLabel("Menú Principal");
+		titulo = new JLabel("MenÃº Principal");
 		titulo.setBounds(300,70,200,40);
 		titulo.setFont(new Font("serif",Font.PLAIN,27));
 		
@@ -42,16 +42,12 @@ public class MenuPrincipal extends JPanel implements ActionListener{
 		
 		boton2 = new JButton("Administrador de trabajadores");
 		boton2.setBounds(270,260,270,25);
-		boton3 = new JButton("Información general de la empresa");
+		boton3 = new JButton("InformaciÃ³n general de la empresa");
 		boton3.setBounds(270,300,270,25);
 		
 		add(boton1);
 		add(boton2);
 		add(boton3);
-		
 	}
-	public void actionPerformed(ActionEvent e) {
-		
-	}
-	
+
 }

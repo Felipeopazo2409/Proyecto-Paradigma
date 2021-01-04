@@ -11,11 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class InsertarDepartamento extends JPanel{
+public class PanelInsertarDepto extends JPanel{
 	private JLabel titulo,n_depto,nombre,numero,trabajadores,icon,mensaje;
 	private JTextField campo1,campo2,campo3,campo4;
-	private JButton mostrar_informacion,guardar;
-	public InsertarDepartamento() {
+	public JButton mostrar_informacion,guardar;
+	public PanelInsertarDepto() {
 		setLayout(null);
 		setBackground(Color.orange);
 		cargarComponentesLabel();
@@ -30,7 +30,7 @@ public class InsertarDepartamento extends JPanel{
 		icon = new JLabel(new ImageIcon("logo.png"));
 		icon.setBounds(0,0,150,150);
 		
-		n_depto = new JLabel("N° Depto");
+		n_depto = new JLabel("Nï¿½ Depto");
 		n_depto.setBounds(190,150,150,40);
 		n_depto.setFont(new Font("serif",Font.PLAIN,20));
 		
@@ -42,7 +42,7 @@ public class InsertarDepartamento extends JPanel{
 		numero.setBounds(190,250,250,40);
 		numero.setFont(new Font("serif",Font.PLAIN,20));
 		
-		mensaje = new JLabel("Se ha guardado la información exitosamente");
+		mensaje = new JLabel("Se ha guardado la informaciï¿½n exitosamente");
 		mensaje.setBounds(220,10,400,40);
 		mensaje.setFont(new Font("serif",Font.PLAIN,20));
 		add(titulo);
@@ -78,14 +78,13 @@ public class InsertarDepartamento extends JPanel{
 			}
 		});
 		
-		add(mostrar_informacion);
+	    add(mostrar_informacion);
 		add(guardar);
 	
 	}
 	
 	public void funcionalidades() {
-		mensaje.setText("Se ha guardado la información exitosamente");
+		mensaje.setText("Se ha guardado la informaciï¿½n exitosamente");
 		
 	}
-	
 }
