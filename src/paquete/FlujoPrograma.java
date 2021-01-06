@@ -15,6 +15,8 @@ public class FlujoPrograma {
 		funcionalidades_botones_ventana_admin();
 		funcionalidades_botones_ventana_trabajadores();
 		funcionalidades_botones_ventana_informacion();
+		
+		
 	}
 	public void CrearVentanas() {
 		ventana_main = new VentanaPrincipal();
@@ -49,6 +51,12 @@ public class FlujoPrograma {
 				ventana_admin.setVisible(false);
 				ventana_trabajadores.setVisible(false);
 				ventana_informacion_general.setVisible(true);
+			}
+		});
+		
+		ventana_main.menu.boton4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(1);
 			}
 		});
 	}

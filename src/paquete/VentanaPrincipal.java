@@ -11,14 +11,14 @@ public class VentanaPrincipal extends JFrame  {
 	public PanelAdministracion admin;
 	public  PanelTrabajador panel_trabajador;
 	private JScrollPane scrollPaneles;
-	//private VentanaAdministrador ventana_admin;
-	public boolean is_visible = true;
+	
 
 	public VentanaPrincipal() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
-		setVisible(is_visible);
+		setVisible(true);
+		setLocationRelativeTo(null);
 
 		cargarComponentes();
 	
@@ -31,7 +31,4 @@ public class VentanaPrincipal extends JFrame  {
 		scrollPaneles.setViewportView(menu);
 		
 	}
-	
-	
-	
 }

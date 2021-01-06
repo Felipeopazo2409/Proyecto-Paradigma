@@ -23,28 +23,28 @@ public class PanelInsertarDepto extends JPanel{
 		cargarComponentesButton();
 	}
 	private void cargarComponentesLabel() {
-		titulo = new JLabel("Inserte Datos del departamento nuevo");
+		titulo = new JLabel("Inserte datos del departamento nuevo");
 		titulo.setBounds(250,100,400,40);
-		titulo.setFont(new Font("serif",Font.PLAIN,22));
+		titulo.setFont(new Font("Helvetica",Font.BOLD,22));
 	
 		icon = new JLabel(new ImageIcon("logo.png"));
 		icon.setBounds(0,0,150,150);
 		
 		n_depto = new JLabel("N Depto");
 		n_depto.setBounds(190,150,150,40);
-		n_depto.setFont(new Font("serif",Font.PLAIN,20));
+		n_depto.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
 		nombre = new JLabel("Nombre");
 		nombre.setBounds(190,200,150,40);
-		nombre.setFont(new Font("serif",Font.PLAIN,20));
+		nombre.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
 		numero = new JLabel("Numero de trabajadores");
 		numero.setBounds(190,250,250,40);
-		numero.setFont(new Font("serif",Font.PLAIN,20));
+		numero.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
 		mensaje = new JLabel("Se ha guardado la información exitosamente");
 		mensaje.setBounds(220,10,400,40);
-		mensaje.setFont(new Font("serif",Font.PLAIN,20));
+		mensaje.setFont(new Font("Helvetica",Font.PLAIN,16));
 		add(titulo);
 		add(icon);
 		add(n_depto);
@@ -54,10 +54,10 @@ public class PanelInsertarDepto extends JPanel{
 	
 	private void cargarComponentesText() {
 		campo1 = new JTextField();
-		campo1.setBounds(280,160,200,25);
+		campo1.setBounds(390,160,200,25);
 		
 		campo2 = new JTextField();
-		campo2.setBounds(270,208,200,25);
+		campo2.setBounds(390,208,200,25);
 		
 		campo3 = new JTextField();
 		campo3.setBounds(390,260,200,25);

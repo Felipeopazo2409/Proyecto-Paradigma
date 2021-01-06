@@ -12,7 +12,7 @@ public class VentanaInformacion extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
 		setVisible(false);
-
+		setLocationRelativeTo(null);
 		cargarComponentes();
 	
 	}
@@ -24,4 +24,6 @@ public class VentanaInformacion extends JFrame{
 		scrollPaneles.setViewportView(panel_informacion);
 		
 	}
+	
+
 }

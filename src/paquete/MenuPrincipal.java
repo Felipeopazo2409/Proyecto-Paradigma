@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class MenuPrincipal extends JPanel {
 	private JLabel titulo,descripcion,icono;
-	public JButton boton1,boton2,boton3;
+	public JButton boton1,boton2,boton3,boton4;
 	
 	public MenuPrincipal() {
 		setLayout(null);
@@ -38,16 +38,20 @@ public class MenuPrincipal extends JPanel {
 	}
 	private void cargarBotones() {
 		boton1 = new JButton("Administrador de departamentos");
-		boton1.setBounds(270,220,270,25);
+		boton1.setBounds(270,220,270,30);
 		
 		boton2 = new JButton("Administrador de trabajadores");
-		boton2.setBounds(270,260,270,25);
+		boton2.setBounds(270,260,270,30);
 		boton3 = new JButton("Información general de la empresa");
-		boton3.setBounds(270,300,270,25);
+		boton3.setBounds(270,300,270,30);
+		
+		boton4 = new JButton("Finalizar Programa");
+		boton4.setBounds(270,340,270,30);
 		
 		add(boton1);
 		add(boton2);
 		add(boton3);
+		add(boton4);
 	}
 
 }

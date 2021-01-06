@@ -20,6 +20,7 @@ public class VentanaTrabajador extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
 		setVisible(false);
+		setLocationRelativeTo(null);
 		Inicializar();
 		navegacion();
 		volver_atras();
@@ -75,5 +76,18 @@ public class VentanaTrabajador extends JFrame{
 				scrollpane.setViewportView(panel);
 			}
 		});
+		
+		modificar.cancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(panel);
+			}
+		});
+		
+		eliminar.cancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(panel);
+			}
+		});
+		
 	}
 }

@@ -1,3 +1,4 @@
+
 package paquete;
 
 import java.awt.Color;
@@ -9,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class PanelEliminarDepto extends JPanel{
 	private JLabel titulo,icon,nombre,ingresar_n_depto,numero_trabajadores;
@@ -26,22 +28,23 @@ public class PanelEliminarDepto extends JPanel{
 	private void labels() {
 		titulo = new JLabel("Eliminar Departamento");
 		titulo.setBounds(280,80,400,40);
-		titulo.setFont(new Font("serif",Font.PLAIN,25));
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		titulo.setFont(new Font("Helvetica",Font.BOLD,25));
 	
 		icon = new JLabel(new ImageIcon("logo.png"));
 		icon.setBounds(0,0,150,150);
 		
 		ingresar_n_depto = new JLabel("Ingrese Numero de Depto");
-		ingresar_n_depto.setBounds(140,150,250,40);
-		ingresar_n_depto.setFont(new Font("serif",Font.PLAIN,22));
+		ingresar_n_depto.setBounds(190,150,250,40);
+		ingresar_n_depto.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
 		nombre = new JLabel("Nombre");
-		nombre.setBounds(140,180,150,40);
-		nombre.setFont(new Font("serif",Font.PLAIN,22));
+		nombre.setBounds(190,180,150,40);
+		nombre.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
 		numero_trabajadores = new JLabel("Numero de trabajadores");
-		numero_trabajadores.setBounds(140,210,250,40);
-		numero_trabajadores.setFont(new Font("serif",Font.PLAIN,22));
+		numero_trabajadores.setBounds(190,210,250,40);
+		numero_trabajadores.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
 		
 		add(titulo);
@@ -52,10 +55,10 @@ public class PanelEliminarDepto extends JPanel{
 	}
 	private void textarea() {
 		campo1 = new JTextArea();
-		campo1.setBounds(220,190,200,25);
+		campo1.setBounds(380,190,200,25);
 		
 		campo2 = new JTextArea();
-		campo2.setBounds(360,220,200,25);
+		campo2.setBounds(380,220,200,25);
 		
 		add(campo1);
 		add(campo2);

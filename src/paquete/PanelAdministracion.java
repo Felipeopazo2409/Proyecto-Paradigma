@@ -30,16 +30,16 @@ public class PanelAdministracion extends JPanel{
 		add(icon);
 	}
 	private void CargarBotones() {
-		ingresar = new JButton("Añadir Departamento");
+		ingresar = new JButton("Agregar Departamento");
 		ingresar.setBounds(280,170,250,25);
 				
 		eliminar = new JButton("Eliminar Departamento");
 		eliminar.setBounds(280,220,250,25);
 		
-		mostrarInformacion = new JButton("Mostrar Información");
+		mostrarInformacion = new JButton("Mostrar Informacion");
 		mostrarInformacion.setBounds(280,270,250,25);
 		
-		volver_menu = new JButton("Volver al menú principal");
+		volver_menu = new JButton("Volver al menu principal");
 		volver_menu.setBounds(280,320,250,25);
 		
 		add(ingresar);

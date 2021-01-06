@@ -18,6 +18,7 @@ public class VentanaAdministrador extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
 		setVisible(false);
+		setLocationRelativeTo(null);
 		 admin = new PanelAdministracion();
 		 scrollpane = new JScrollPane();
 		 scrollpane.setBounds(1,1,779,500);
@@ -63,6 +64,12 @@ public class VentanaAdministrador extends JFrame {
 			}
 		});
 		eliminar.cancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(admin);
+			}
+		});
+		
+		mostrar_info.volver_menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(admin);
 			}
