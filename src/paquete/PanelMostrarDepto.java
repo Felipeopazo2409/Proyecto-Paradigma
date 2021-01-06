@@ -30,11 +30,11 @@ public class PanelMostrarDepto extends JPanel{
 	}
 	private void botones() {
 		mostrar_lista = new JButton("Mostrar Lista de departamentos");
-		mostrar_lista.setBounds(250,250,250,30);
-		
+		mostrar_lista.setBounds(250,250,300,30);
+		mostrar_lista.setFont(new Font("Helvetica",Font.PLAIN,18));
 		volver_menu = new JButton("Volver al menu Principal");
-		volver_menu.setBounds(250,285,250,30);
-		
+		volver_menu.setBounds(250,285,300,30);
+		volver_menu.setFont(new Font("Helvetica",Font.PLAIN,18));
 		
 		add(volver_menu);
 		add(mostrar_lista);

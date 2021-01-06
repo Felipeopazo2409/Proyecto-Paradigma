@@ -24,11 +24,11 @@ public class MenuPrincipal extends JPanel {
 	private void cargarComponentesLabel() {
 		titulo = new JLabel("Menú Principal");
 		titulo.setBounds(300,70,200,40);
-		titulo.setFont(new Font("serif",Font.PLAIN,27));
+		titulo.setFont(new Font("Helvetica",Font.PLAIN,27));
 		
 		descripcion = new JLabel("''Bienvenido al software de la Choza de concreto''");
-		descripcion.setBounds(220,150,400,40);
-		descripcion.setFont(new Font("serif",Font.BOLD,18));
+		descripcion.setBounds(200,150,450,40);
+		descripcion.setFont(new Font("Helvetica",Font.BOLD,18));
 		
 		icono = new JLabel(new ImageIcon("logo.png"));
 		icono.setBounds(5,0,150,150);
@@ -38,16 +38,20 @@ public class MenuPrincipal extends JPanel {
 	}
 	private void cargarBotones() {
 		boton1 = new JButton("Administrador de departamentos");
-		boton1.setBounds(270,220,270,30);
+		boton1.setBounds(240,220,350,30);
+		boton1.setFont(new Font("Helvetica",Font.PLAIN,18));
 		
 		boton2 = new JButton("Administrador de trabajadores");
-		boton2.setBounds(270,260,270,30);
+		boton2.setBounds(240,260,350,30);
+		boton2.setFont(new Font("Helvetica",Font.PLAIN,18));
+		
 		boton3 = new JButton("Información general de la empresa");
-		boton3.setBounds(270,300,270,30);
+		boton3.setBounds(240,300,350,30);
+		boton3.setFont(new Font("Helvetica",Font.PLAIN,18));
 		
 		boton4 = new JButton("Finalizar Programa");
-		boton4.setBounds(270,340,270,30);
-		
+		boton4.setBounds(240,340,350,30);
+		boton4.setFont(new Font("Helvetica",Font.PLAIN,18));
 		add(boton1);
 		add(boton2);
 		add(boton3);

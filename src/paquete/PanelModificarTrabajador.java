@@ -30,7 +30,7 @@ public class PanelModificarTrabajador extends JPanel{
 		titulo.setBounds(240,50,420,40);
 		titulo.setFont(new Font("serif",Font.PLAIN,25));
 		
-		rut = new JLabel("Ingrese rut para buscar");
+		rut = new JLabel("Ingrese Rut");
 		rut.setBounds(50,160,270,40);
 		rut.setFont(new Font("serif",Font.PLAIN,20));
 		

@@ -18,7 +18,7 @@ public class VentanaTrabajador extends JFrame{
 		panel = new PanelTrabajador();
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(true);
+		setResizable(false);
 		setVisible(false);
 		setLocationRelativeTo(null);
 		Inicializar();
@@ -88,6 +88,10 @@ public class VentanaTrabajador extends JFrame{
 				scrollpane.setViewportView(panel);
 			}
 		});
-		
+		consultar.volver_menu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(panel);
+			}
+		});
 	}
 }

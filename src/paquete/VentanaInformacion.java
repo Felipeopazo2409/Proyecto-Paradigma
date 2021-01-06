@@ -10,7 +10,7 @@ public class VentanaInformacion extends JFrame{
 	public VentanaInformacion() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(true);
+		setResizable(false);
 		setVisible(false);
 		setLocationRelativeTo(null);
 		cargarComponentes();

@@ -26,7 +26,7 @@ public class InformacionTrabajador extends JPanel{
 	}
 	private void cargarComponentesLabel() {
 		//Titulo de Interfaz
-		titulo = new JLabel("Información del Trabajador");
+		titulo = new JLabel("InformaciÃ³n del Trabajador");
 		titulo.setBounds(240,20,300,40);
 		titulo.setFont(new Font("serif",Font.PLAIN,25));
 		
@@ -87,7 +87,7 @@ public class InformacionTrabajador extends JPanel{
 		campo3 = new JTextArea();
 		campo3.setBounds(170,150,120,20);
 		campo3.setFont(new Font("serif",Font.PLAIN,15));
-		campo3.setText("Córdova");
+		campo3.setText("Cï¿½rdova");
 		
 		campo4 = new JTextArea();
 		campo4.setBounds(60,180,120,20);

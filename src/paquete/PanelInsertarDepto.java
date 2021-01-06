@@ -24,7 +24,7 @@ public class PanelInsertarDepto extends JPanel{
 	}
 	private void cargarComponentesLabel() {
 		titulo = new JLabel("Inserte datos del departamento nuevo");
-		titulo.setBounds(250,100,400,40);
+		titulo.setBounds(230,100,450,40);
 		titulo.setFont(new Font("Helvetica",Font.BOLD,22));
 	
 		icon = new JLabel(new ImageIcon("logo.png"));
@@ -67,14 +67,14 @@ public class PanelInsertarDepto extends JPanel{
 	}
 	private void cargarComponentesButton() {
 		mostrar_informacion = new JButton("Mostrar Lista de trabajadores");
-		mostrar_informacion.setBounds(240,320,250,35);
-		
+		mostrar_informacion.setBounds(240,320,280,35);
+		mostrar_informacion.setFont(new Font("Helvetica",Font.PLAIN,18));
 		guardar = new JButton("Guardar Informacion");
-		guardar.setBounds(240,375,250,35);
-		
+		guardar.setBounds(240,375,280,35);
+		guardar.setFont(new Font("Helvetica",Font.PLAIN,18));
 		guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				funcionalidades();
+				mensaje.setText("Se ha guardado la información exitosamente");
 			}
 		});
 		
@@ -83,8 +83,4 @@ public class PanelInsertarDepto extends JPanel{
 	
 	}
 	
-	public void funcionalidades() {
-		mensaje.setText("Se ha guardado la informaci�n exitosamente");
-		
-	}
 }

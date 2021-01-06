@@ -12,4 +12,11 @@
     "Apellido Materno": "asd",
     "Apellido Paterno": "asd",
     "Salario": "asd"
+}}{"trabajadores": {
+    "Nombre": "Felipe",
+    "Rut": "200880145",
+    "Nacimiento": "24/09/1999",
+    "Apellido Materno": "Opazo",
+    "Apellido Paterno": "cordova",
+    "Salario": "4500"
 }}

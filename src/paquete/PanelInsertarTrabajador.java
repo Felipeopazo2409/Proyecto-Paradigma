@@ -31,41 +31,41 @@ public class PanelInsertarTrabajador extends JPanel{
 		setBackground(Color.orange);
 		labels();
 		campos();
-	
+		botones();
 	}
 	private void labels() {
 		titulo = new JLabel("Ingresar datos del nuevo trabajador");
-		titulo.setBounds(240,20,420,40);
+		titulo.setBounds(240,50,420,40);
 		titulo.setFont(new Font("Helvetica",Font.PLAIN,25));
 		
 		nombre = new JLabel("Nombre");
 		nombre.setBounds(50,160,100,40);
-		nombre.setFont(new Font("serif",Font.PLAIN,20));
+		nombre.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		apellidoP = new JLabel("Apellido Paterno ");
 		apellidoP.setBounds(50,190,150,40);
-		apellidoP.setFont(new Font("serif",Font.PLAIN,20));
+		apellidoP.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		apellidoM = new JLabel("Apellido Materno ");
 		
 		apellidoM.setBounds(50,220,150,40);
-		apellidoM.setFont(new Font("serif",Font.PLAIN,20));
+		apellidoM.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		rut = new JLabel("Rut");
 		rut.setBounds(50,250,80,40);
-		rut.setFont(new Font("serif",Font.PLAIN,20));
+		rut.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		departamento = new JLabel();
 		departamento.setBounds(50,340,300,40);
-		departamento.setFont(new Font("serif",Font.PLAIN,20));
+		departamento.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		fecha_nacimiento = new JLabel("Fecha de nacimiento ");
 		fecha_nacimiento.setBounds(50,280,300,40);
-		fecha_nacimiento.setFont(new Font("serif",Font.PLAIN,20));
+		fecha_nacimiento.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		tipo_contrato = new JLabel("Tipo de contrato ");
 		tipo_contrato.setBounds(50,310,300,40);
-		tipo_contrato.setFont(new Font("serif",Font.PLAIN,20));
+		tipo_contrato.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		JComboBox comboContrato= new JComboBox(contratos);
 		contrato = comboContrato;
@@ -75,11 +75,11 @@ public class PanelInsertarTrabajador extends JPanel{
 		
 		salario = new JLabel("Salario por hora ");
 		salario.setBounds(50,340,300,40);
-		salario.setFont(new Font("serif",Font.PLAIN,20));
+		salario.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		departamento = new JLabel("Departamento ");
 		departamento.setBounds(50,370,300,40);
-		departamento.setFont(new Font("serif",Font.PLAIN,20));
+		departamento.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		icono = new JLabel(new ImageIcon("logo.png"));
 		icono.setBounds(1,1,150,150);
@@ -118,16 +118,8 @@ public class PanelInsertarTrabajador extends JPanel{
 		
 		campoDepartamento = new JTextField();
 		campoDepartamento.setBounds(215,380,150,20);
-		guardar = new JButton("Guardar Nuevo Trabajador");
-		guardar.setBounds(470,200,200,40);
-		
-		cancelar = new JButton("Cancelar");
-		cancelar.setBounds(470,270,200,40);
 		
 		
-		
-		add(guardar);
-		add(cancelar);
 		add(campoNombre);
 		add(campoApellidoMaterno);
 		add(campoApellidoPaterno);
@@ -135,6 +127,26 @@ public class PanelInsertarTrabajador extends JPanel{
 		add(campoNacimiento);
 		add(campoSalario);
 		add(campoDepartamento);
+	
+		
+	}
+	private void botones() {
+
+		guardar = new JButton("Guardar Nuevo Trabajador");
+		guardar.setBounds(470,200,250,40);
+		guardar.setFont(new Font("Helvetica",Font.PLAIN,16));
+		
+		cancelar = new JButton("Cancelar");
+		cancelar.setBounds(470,270,250,40);
+		cancelar.setFont(new Font("Helvetica",Font.PLAIN,16));
+		
+		
+		add(guardar);
+		add(cancelar);
+		
+		
+		
+		
 		guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent A) {
 				JSONObject trabajador = new JSONObject();
@@ -164,12 +176,6 @@ public class PanelInsertarTrabajador extends JPanel{
 		        }
 			}
 		});
-		
-		
-		
 	}
-
-	public static int numeroTrabajadores() {
-		return cantidadTrabajadores;
-	}
+	
 }

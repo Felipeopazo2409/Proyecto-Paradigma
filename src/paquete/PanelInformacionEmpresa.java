@@ -29,7 +29,7 @@ public class PanelInformacionEmpresa extends JPanel {
 				cantidadDeptos.setFont(new Font("Helvetica",Font.PLAIN,22));
 				cantidadDeptos.setHorizontalAlignment(SwingConstants.CENTER);
 				
-				cantidadTrabajadores = new JLabel("Cantidades de Trabajadores: "+ PanelInsertarTrabajador.numeroTrabajadores());
+				cantidadTrabajadores = new JLabel("Cantidades de Trabajadores: ");
 				cantidadTrabajadores.setBounds(280,220,300,40);
 				cantidadTrabajadores.setFont(new Font("Helvetica",Font.PLAIN,22));
 				cantidadTrabajadores.setHorizontalAlignment(SwingConstants.CENTER);

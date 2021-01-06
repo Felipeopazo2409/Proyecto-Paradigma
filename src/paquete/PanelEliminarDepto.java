@@ -71,10 +71,11 @@ public class PanelEliminarDepto extends JPanel{
 	private void botones() {
 		eliminar_depto = new JButton("Eliminar");
 		eliminar_depto.setBounds(160,300,250,30);
+		eliminar_depto.setFont(new Font("Helvetica",Font.PLAIN,18));
 		
 		cancelar = new JButton("Cancelar");
 		cancelar.setBounds(450,300,250,30);
-		
+		cancelar.setFont(new Font("Helvetica",Font.PLAIN,18));
 		add(eliminar_depto);
 		add(cancelar);
 		

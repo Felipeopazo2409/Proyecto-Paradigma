@@ -16,7 +16,7 @@ public class VentanaAdministrador extends JFrame {
 	public VentanaAdministrador() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(true);
+		setResizable(false);
 		setVisible(false);
 		setLocationRelativeTo(null);
 		 admin = new PanelAdministracion();
