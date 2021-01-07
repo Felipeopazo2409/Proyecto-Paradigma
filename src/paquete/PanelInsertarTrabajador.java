@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class PanelInsertarTrabajador extends JPanel{
 	private JLabel titulo,icono;
 	private JLabel nombre,apellidoP,apellidoM,rut,fecha_nacimiento,tipo_contrato,salario,departamento;
-	private JTextField campoNombre,campoApellidoMaterno,campoApellidoPaterno,campoRut,campoNacimiento,campoSalario,campoDepartamento;
+	public JTextField campoNombre,campoApellidoMaterno,campoApellidoPaterno,campoRut,campoNacimiento,campoSalario,campoDepartamento;
 	public JButton guardar,cancelar;
 	private JComboBox contrato;
 	private String[] contratos = {"Full-time","Part-Time"}; 
@@ -100,6 +100,7 @@ public class PanelInsertarTrabajador extends JPanel{
 		
 		campoNombre = new JTextField();
 		campoNombre.setBounds(250,170,150,20);
+		campoNombre.setText("Felipe");
 		
 		campoApellidoMaterno = new JTextField();
 		campoApellidoMaterno.setBounds(250,200,150,20);
@@ -143,9 +144,6 @@ public class PanelInsertarTrabajador extends JPanel{
 		
 		add(guardar);
 		add(cancelar);
-		
-		
-		
 		
 		guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent A) {

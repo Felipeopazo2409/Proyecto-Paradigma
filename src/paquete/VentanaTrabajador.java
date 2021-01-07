@@ -7,13 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 public class VentanaTrabajador extends JFrame{
+	
 	public PanelTrabajador panel;
 	private JScrollPane scrollpane;
-	private PanelInsertarTrabajador insertar;
-	private PanelModificarTrabajador modificar;
-	private PanelEliminarTrabajador eliminar;
-	private PanelConsultarDatos consultar;
-	private PanelLiquidacionSueldo liquidacion;
+	public PanelInsertarTrabajador panelInsertarTrabajador;
+	public PanelModificarTrabajador panelModificarTrabajador;
+	public PanelEliminarTrabajador panelEliminarTrabajador;
+	private PanelConsultarDatos panelConsultarTrabajador;
+	private PanelLiquidacionSueldo panelLiquidacionTrabajador;
 	public VentanaTrabajador() {
 		panel = new PanelTrabajador();
 		setSize(780,500);
@@ -33,65 +34,71 @@ public class VentanaTrabajador extends JFrame{
 	}
 	private void navegacion() {
 		//Instancia de paneles 
-		insertar = new PanelInsertarTrabajador();
-		modificar = new PanelModificarTrabajador();
-		eliminar = new PanelEliminarTrabajador ();
-		consultar = new PanelConsultarDatos();
-		liquidacion = new PanelLiquidacionSueldo ();
+		panelInsertarTrabajador = new PanelInsertarTrabajador();
+		panelModificarTrabajador = new PanelModificarTrabajador();
+		panelEliminarTrabajador = new PanelEliminarTrabajador ();
+		panelConsultarTrabajador = new PanelConsultarDatos();
+		panelLiquidacionTrabajador = new PanelLiquidacionSueldo ();
 		//pinchar boton para ingresar un trabajador
 		panel.ingresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(insertar);
+				scrollpane.setViewportView(panelInsertarTrabajador);
 			}
 		});
 		
 		//Pinchar Boton para modificar un trabajador
 		panel.modificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(modificar);
+				scrollpane.setViewportView(panelModificarTrabajador);
 			}
 		});
 		//Pinchar Boton para Eliminar un trabajador
 		panel.eliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(eliminar);
+				scrollpane.setViewportView(panelEliminarTrabajador);
 			}
 		});
 		//Pinchar Boton para Consultar Datos de un trabajador
 		panel.consultar_datos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(consultar);
+				scrollpane.setViewportView(panelConsultarTrabajador);
 			}
 		});
 		//Pinchar Boton para Generar Liquidacion de sueldo
 		panel.generar_liquidacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(liquidacion);
+				scrollpane.setViewportView(panelLiquidacionTrabajador);
 			}
 		});
 	}
 	private void volver_atras() {
-		insertar.cancelar.addActionListener(new ActionListener() {
+		panelInsertarTrabajador.cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panel);
 			}
 		});
 		
-		modificar.cancelar.addActionListener(new ActionListener() {
+		panelModificarTrabajador.cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panel);
 			}
 		});
 		
-		eliminar.cancelar.addActionListener(new ActionListener() {
+		panelEliminarTrabajador.cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panel);
 			}
 		});
-		consultar.volver_menu.addActionListener(new ActionListener() {
+		panelConsultarTrabajador.volver_menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panel);
 			}
 		});
+		panelLiquidacionTrabajador.volver_menu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(panel);
+			}
+		});
+		
 	}
 }

@@ -79,9 +79,9 @@ public class FlujoPrograma {
 	
 	
 	public void funcionalidades_botones_ventana_trabajadores() {
-		ventana_trabajadores.panel.ingresar.addActionListener(new ActionListener() {
+		ventana_trabajadores.panelInsertarTrabajador.guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				System.out.println(ventana_trabajadores.panelInsertarTrabajador.campoNombre.getText());
 			}
 		});
 		ventana_trabajadores.panel.modificar.addActionListener(new ActionListener() {
