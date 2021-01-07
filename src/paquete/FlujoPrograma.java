@@ -3,20 +3,21 @@ package paquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class FlujoPrograma {
 	public VentanaPrincipal ventana_main;
 	public VentanaAdministrador ventana_admin;
 	public VentanaTrabajador ventana_trabajadores;
 	public VentanaInformacion ventana_informacion_general;
-	
+	public JSONObject trabajadores;
 	public FlujoPrograma() {
 		CrearVentanas();
 		funcionalidades_botones_ventana_main();
 		funcionalidades_botones_ventana_admin();
 		funcionalidades_botones_ventana_trabajadores();
-		funcionalidades_botones_ventana_informacion();
-		
-		
+		funcionalidades_botones_ventana_informacion();		
 	}
 	public void CrearVentanas() {
 		ventana_main = new VentanaPrincipal();
@@ -79,11 +80,7 @@ public class FlujoPrograma {
 	
 	
 	public void funcionalidades_botones_ventana_trabajadores() {
-		ventana_trabajadores.panelInsertarTrabajador.guardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(ventana_trabajadores.panelInsertarTrabajador.campoNombre.getText());
-			}
-		});
+		
 		ventana_trabajadores.panel.modificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
