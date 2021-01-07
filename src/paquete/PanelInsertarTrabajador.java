@@ -48,7 +48,7 @@ public class PanelInsertarTrabajador extends JPanel{
 		
 		apellidoM = new JLabel("Apellido Materno ");
 		
-		apellidoM.setBounds(50,220,150,40);
+		apellidoM.setBounds(50,220,180,40);
 		apellidoM.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		rut = new JLabel("Rut");
@@ -69,7 +69,7 @@ public class PanelInsertarTrabajador extends JPanel{
 		
 		JComboBox comboContrato= new JComboBox(contratos);
 		contrato = comboContrato;
-		contrato.setBounds(215,320,150,25);
+		contrato.setBounds(250,320,150,25);
 	
 	
 		
@@ -99,25 +99,25 @@ public class PanelInsertarTrabajador extends JPanel{
 	private void campos() {
 		
 		campoNombre = new JTextField();
-		campoNombre.setBounds(215,170,150,20);
+		campoNombre.setBounds(250,170,150,20);
 		
 		campoApellidoMaterno = new JTextField();
-		campoApellidoMaterno.setBounds(215,200,150,20);
+		campoApellidoMaterno.setBounds(250,200,150,20);
 		
 		campoApellidoPaterno = new JTextField();
-		campoApellidoPaterno.setBounds(215,230,150,20);
+		campoApellidoPaterno.setBounds(250,230,150,20);
 		
 		campoRut = new JTextField();
-		campoRut.setBounds(215,260,150,20);
+		campoRut.setBounds(250,260,150,20);
 		
 		campoNacimiento = new JTextField();
-		campoNacimiento.setBounds(215,290,150,20);
+		campoNacimiento.setBounds(250,290,150,20);
 		
 		campoSalario = new JTextField();
-		campoSalario.setBounds(215,350,150,20);
+		campoSalario.setBounds(250,350,150,20);
 		
 		campoDepartamento = new JTextField();
-		campoDepartamento.setBounds(215,380,150,20);
+		campoDepartamento.setBounds(250,380,150,20);
 		
 		
 		add(campoNombre);

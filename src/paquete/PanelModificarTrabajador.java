@@ -24,6 +24,7 @@ public class PanelModificarTrabajador extends JPanel{
 		
 		labels();
 		campos();
+		botones();
 	}
 	private void labels() {
 		titulo = new JLabel("Modificar Datos de Trabajador");
@@ -31,7 +32,7 @@ public class PanelModificarTrabajador extends JPanel{
 		titulo.setFont(new Font("serif",Font.PLAIN,25));
 		
 		rut = new JLabel("Ingrese Rut");
-		rut.setBounds(50,160,270,40);
+		rut.setBounds(150,140,270,40);
 		rut.setFont(new Font("serif",Font.PLAIN,20));
 		
 		nombre = new JLabel("Nombre");
@@ -94,7 +95,7 @@ public class PanelModificarTrabajador extends JPanel{
 	private void campos() {
 		
 		campoRut = new JTextField();
-		campoRut.setBounds(240,170,150,20);
+		campoRut.setBounds(250,155,150,20);
 		
 		campoNombre = new JTextField();
 		campoNombre.setBounds(240,200,150,20);
@@ -114,6 +115,16 @@ public class PanelModificarTrabajador extends JPanel{
 		campoDepartamento = new JTextField();
 		campoDepartamento.setBounds(240,380,150,20);
 		
+		add(campoNombre);
+		add(campoApellidoMaterno);
+		add(campoApellidoPaterno);
+		add(campoRut);
+		add(campoNacimiento);
+		add(campoSalario);
+		add(campoDepartamento);
+	}
+	
+	private void botones() {
 		buscar = new JButton("Buscar Trabajador");
 		buscar.setBounds(470,170,200,40);
 		
@@ -122,19 +133,9 @@ public class PanelModificarTrabajador extends JPanel{
 		
 		cancelar = new JButton("Cancelar");
 		cancelar.setBounds(470,310,200,40);
-	
-		
 		
 		add(guardar);
 		add(cancelar);
 		add(buscar);
-		
-		add(campoNombre);
-		add(campoApellidoMaterno);
-		add(campoApellidoPaterno);
-		add(campoRut);
-		add(campoNacimiento);
-		add(campoSalario);
-		add(campoDepartamento);
 	}
 }

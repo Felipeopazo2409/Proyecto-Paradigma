@@ -33,7 +33,7 @@ public class PanelConsultarDatos extends JPanel {
 		titulo.setFont(new Font("Helvetica",Font.PLAIN,25));
 		
 		rut = new JLabel("Ingresar Rut");
-		rut.setBounds(50,160,200,40);
+		rut.setBounds(150,150,200,40);
 		rut.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
 		nombre = new JLabel("Nombre");
@@ -118,28 +118,24 @@ public class PanelConsultarDatos extends JPanel {
 	
 	public void cargarComponentesButton() {
 		buscar = new JButton("Buscar Trabajador");
-		buscar.setBounds(500,200,200,40);
+		buscar.setBounds(500,200,230,40);
+		buscar.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
 		limpiar = new JButton("Limpiar Pantalla");
-		limpiar.setBounds(500,250,200,40);
-		
+		limpiar.setBounds(500,250,230,40);
+		limpiar.setFont(new Font("Helvetica",Font.PLAIN,16));
+	
 		volver_menu = new JButton("Volver al menu principal");
-		volver_menu.setBounds(500,300,200,40);
-		
+		volver_menu.setBounds(500,300,230,40);
+		volver_menu.setFont(new Font("Helvetica",Font.PLAIN,16));
 		add(buscar);
 		add(limpiar);
 		add(volver_menu);
 		
-		volver_menu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 	}	
 	private void textField() {
-		
-		
 		campo_rut = new JTextField();
-		campo_rut.setBounds(235,170,180,20);
+		campo_rut.setBounds(270,160,180,20);
 		add(campo_rut);
 	}
 }
