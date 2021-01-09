@@ -39,8 +39,8 @@ public class VentanaTrabajador extends JFrame{
 	public PanelEliminarTrabajador panelEliminarTrabajador;
 	private PanelConsultarDatos panelConsultarTrabajador;
 	private PanelLiquidacionSueldo panelLiquidacionTrabajador;
-	public JSONObject trabajador = new JSONObject();
-	
+	public Trabajador trabajador;
+	public ArrayList<Trabajador> lista_trabajadores;
 	public VentanaTrabajador() {
 		panel = new PanelTrabajador();
 		setSize(780,500);
@@ -153,9 +153,9 @@ public class VentanaTrabajador extends JFrame{
 		
 	}
 	private void crear_json() {
-		JSONArray jsonArray = new JSONArray();
-		JSONObject trabajador;
-		trabajador = new JSONObject();
+		
+		lista_trabajadores = new ArrayList();
+		
 		String nombre = panelInsertarTrabajador.campoNombre.getText();
 		String apellidoP = panelInsertarTrabajador.campoApellidoPaterno.getText();
 		String apellidoM = panelInsertarTrabajador.campoApellidoMaterno.getText();
@@ -167,20 +167,23 @@ public class VentanaTrabajador extends JFrame{
 		int rut = Integer.parseInt(obtener_rut);
 		int salario = Integer.parseInt(obtener_salario);
 		
-		trabajador.put("Nombre",nombre);
-		trabajador.put("Apellido Paterno", apellidoP);
-		trabajador.put("Apellido Materno",apellidoM);
-		trabajador.put("Rut", rut);
-		trabajador.put("Fecha de nacimiento",fecha);
-		trabajador.put("Tipo Contrato", tipo_contrato);
-		trabajador.put("Salario", salario);
-		trabajador.put("Departamento", departamento);
-		jsonArray.put(trabajador);
+		lista_trabajadores.add(new Trabajador(nombre,apellidoP,apellidoM,rut,fecha,tipo_contrato,salario,departamento));
 		
-		JSONObject lista = new JSONObject();
-		lista.put("Trabajador", jsonArray);
+		Gson gson = new Gson();
 		
-	
+		String json = gson.toJson(lista_trabajadores);
+		
+		FileWriter file;
+		
+		try {
+			file = new FileWriter("Trabajadores.json");
+			file.write(json);
+			file.flush();
+			file.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
