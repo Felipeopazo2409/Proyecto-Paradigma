@@ -1,50 +1,27 @@
 {"trabajadores": {
-    "Nombre": "",
-    "Rut": "",
-    "Nacimiento": "",
-    "Apellido Materno": "",
-    "Apellido Paterno": "",
-    "Salario": ""
-}}{"trabajadores": {
-    "Nombre": "asd",
-    "Rut": "asdasd",
-    "Nacimiento": "asd",
-    "Apellido Materno": "asd",
-    "Apellido Paterno": "asd",
-    "Salario": "asd"
-}}{"trabajadores": {
     "Nombre": "Felipe",
-    "Rut": "200880145",
-    "Nacimiento": "24/09/1999",
+    "Rut": 200880145,
+    "Nacimiento": "24/09/199",
+    "Apellido Paterno": "Cordova",
     "Apellido Materno": "Opazo",
-    "Apellido Paterno": "cordova",
-    "Salario": "4500"
-}}{"trabajadores": {
-    "Nombre": "",
-    "Rut": "",
-    "Nacimiento": "",
-    "Apellido Materno": "",
-    "Apellido Paterno": "",
-    "Salario": ""
-}}{"trabajadores": {
+    "Departamento": "Informactica",
+    "Salario": 4000
+}}[{
     "Nombre": "Felipe",
-    "Rut": "",
-    "Nacimiento": "",
-    "Apellido Materno": "",
-    "Apellido Paterno": "",
-    "Salario": ""
-}}{"trabajadores": {
+    "Rut": 200880145,
+    "Fecha de nacimiento": "24/09/1999",
+    "Apellido Paterno": "Cordova",
+    "Apellido Materno": "Opazo",
+    "Tipo Contrato": "Part-Time",
+    "Departamento": "Informatica",
+    "Salario": 4000
+}][{
     "Nombre": "Felipe",
-    "Rut": "",
-    "Nacimiento": "",
-    "Apellido Materno": "",
-    "Apellido Paterno": "",
-    "Salario": ""
-}}{"trabajadores": {
-    "Nombre": "Felipe",
-    "Rut": "",
-    "Nacimiento": "",
-    "Apellido Materno": "",
-    "Apellido Paterno": "",
-    "Salario": ""
-}}
+    "Rut": 200880145,
+    "Fecha de nacimiento": "24/09/1999",
+    "Apellido Paterno": "Cordova",
+    "Apellido Materno": "Opazo",
+    "Tipo Contrato": "Part-Time",
+    "Departamento": "Informatica",
+    "Salario": 4000
+}][{"Nombre":"Felipe","Rut":200880145,"Fecha de nacimiento":"asda","Apellido Paterno":"adsad","Apellido Materno":"Opazo","Tipo Contrato":"Full-time","Departamento":"das","Salario":200}]{"trabajador":{"Nombre":"Felipe","Rut":200880145,"Fecha de nacimiento":"24/09/1999","Apellido Paterno":"Cordova","Apellido Materno":"Opazo","Tipo Contrato":"Full-time","Departamento":"Informatica","Salario":4000}}

@@ -18,7 +18,7 @@ public class PanelConsultarDatos extends JPanel {
     private JTextArea campoNombre,campoApellidoMaterno,campoApellidoPaterno,campoNacimiento,campo_contrato,camposalario,campodepartamento;
     private JTextField campo_rut;
     public JButton volver_menu;
-    private JButton limpiar,buscar;
+    public JButton limpiar,buscar;
 	public PanelConsultarDatos() {
 		setLayout(null);
 		setBackground(Color.orange);

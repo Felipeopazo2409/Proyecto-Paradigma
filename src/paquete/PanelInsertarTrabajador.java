@@ -23,12 +23,14 @@ public class PanelInsertarTrabajador extends JPanel{
 	private JLabel nombre,apellidoP,apellidoM,rut,fecha_nacimiento,tipo_contrato,salario,departamento;
 	public JTextField campoNombre,campoApellidoMaterno,campoApellidoPaterno,campoRut,campoNacimiento,campoSalario,campoDepartamento;
 	public JButton guardar,cancelar;
-	private JComboBox contrato;
+	public JComboBox contrato,dia,mes,año;
 	private String[] contratos = {"Full-time","Part-Time"}; 
+	private String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre",
+			"Octubre","Noviembre","Diciembre"};
 	public static int cantidadTrabajadores;
 	public PanelInsertarTrabajador() {
 		setLayout(null);
-		setBackground(Color.orange);
+		setBackground(Color.ORANGE);
 		labels();
 		campos();
 		botones();
@@ -63,15 +65,19 @@ public class PanelInsertarTrabajador extends JPanel{
 		fecha_nacimiento.setBounds(50,280,300,40);
 		fecha_nacimiento.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
+		//mes = new JComboBox(meses);
+		//mes.setBounds(250,280,50,20);
+		//add(mes);
+		
 		tipo_contrato = new JLabel("Tipo de contrato ");
 		tipo_contrato.setBounds(50,310,300,40);
 		tipo_contrato.setFont(new Font("Helvetica",Font.PLAIN,20));
 		
-		JComboBox comboContrato= new JComboBox(contratos);
-		contrato = comboContrato;
+		contrato = new JComboBox(contratos);
 		contrato.setBounds(250,320,150,25);
+		
 	
-	
+		
 		
 		salario = new JLabel("Salario por hora ");
 		salario.setBounds(50,340,300,40);
@@ -145,35 +151,6 @@ public class PanelInsertarTrabajador extends JPanel{
 		add(guardar);
 		add(cancelar);
 		
-		guardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent A) {
-				JSONObject trabajador = new JSONObject();
-				trabajador.put("Nombre",campoNombre.getText());
-				trabajador.put("Apellido Materno",campoApellidoMaterno.getText());
-				trabajador.put("Apellido Paterno",campoApellidoPaterno.getText());
-				trabajador.put("Rut",campoRut.getText());
-				trabajador.put("Nacimiento",campoNacimiento.getText());
-				trabajador.put("Salario",campoSalario.getText());
-				//trabajador.put("Departamento",campoDepartamento);
-				JSONArray myList = new JSONArray();
-		        myList.put(trabajador);
-		        
-		        JSONObject listaTrabajador = new JSONObject();
-		        listaTrabajador.put("trabajadores",trabajador);
-		        cantidadTrabajadores = listaTrabajador.length();
-		        System.out.println(cantidadTrabajadores);
-		        FileWriter file;
-		        try {
-		            file = new FileWriter("Trabajadores.json",true);
-		            file.write(listaTrabajador.toString(4));
-		            file.flush();
-		            file.close();
-		 
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		        }
-			}
-		});
 	}
 	
 }

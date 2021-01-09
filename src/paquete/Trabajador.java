@@ -8,13 +8,15 @@ public class Trabajador {
 	private String tipo_contrato;
 	private int salario;
 	private  String fecha_de_nacimiento;
-	public Trabajador(String nombre,String a_paterno,String a_materno,int rut,String fecha_nacimiento,String tipo_contrato,int salario) {
+	private String departamento;
+	public Trabajador(String nombre,String a_paterno,String a_materno,int rut,String fecha_nacimiento,String tipo_contrato,int salario,String departamento) {
 		this.nombre = nombre;
 		this.apellido_paterno = a_paterno;
 		this.apellido_materno = a_materno;
 		this.rut = rut;
 		this.tipo_contrato = tipo_contrato;
 		this.fecha_de_nacimiento = fecha_nacimiento;
+		this.departamento = departamento;
 	}
 	public void setNombre (String nombre) {
 		this.nombre = nombre;
@@ -59,5 +61,13 @@ public class Trabajador {
 	public int getSalario() {
 		return salario;
 	}
+	public void setDepartamento(String Departamento) {
+		this.departamento = Departamento;
+	}
+	public String getDepartamento() {
+		return departamento;
+	}
+	
+	
 	
 }

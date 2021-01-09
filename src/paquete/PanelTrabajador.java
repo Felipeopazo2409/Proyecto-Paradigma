@@ -9,9 +9,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import org.json.JSONArray;
+
 public class PanelTrabajador extends JPanel {
 	 private JLabel titulo,icon;
 	 public JButton ingresar,modificar,eliminar,volver_menu,consultar_datos,generar_liquidacion;
+	 public VentanaTrabajador ventana_trabajadores;
+	 public VentanaInformacion ventana_informacion_general;
+	 
+	 
 	 public PanelTrabajador() {
 		 setLayout(null);
 		 setBackground(Color.orange);
