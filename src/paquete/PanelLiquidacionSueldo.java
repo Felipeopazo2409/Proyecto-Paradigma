@@ -15,7 +15,7 @@ public class PanelLiquidacionSueldo extends JPanel {
 	public JButton volver_menu, calcular_salario;
 	public JTextField campo_rut, campo_salario;
 	public JComboBox contrato;
-	private final String[] contratos = { "Full-time", "Part-Time" };
+	private final String[] contratos = { "Full-Time", "Part-Time" };
 
 	public PanelLiquidacionSueldo() {
 		setLayout(null);
@@ -62,7 +62,9 @@ public class PanelLiquidacionSueldo extends JPanel {
 		double afp = 0.1 * salario;
 		double sistema_pension = 0.07 * salario;
 		if (contrato.getSelectedItem().toString() == "Full-Time") {
-
+			System.out.println("El salario es: " + (salario - afp - sistema_pension + (4000 * 20)));
+		} else {
+			System.out.println("El salario es: " + (salario - afp - sistema_pension));
 		}
 	}
 
