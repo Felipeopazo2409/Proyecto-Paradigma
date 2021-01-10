@@ -106,18 +106,18 @@ public class VentanaAdministrador extends JFrame {
 		int numero_depto = Integer.parseInt(n_depto);
 		int n_trabajadores = Integer.parseInt(numero_trabajadores);
 		
-		departamento = new Departamento(numero_depto,nombre,n_trabajadores);
+			departamento = new Departamento(numero_depto,nombre,n_trabajadores);
 			JSONObject lista = new JSONObject();
-		   lista_departamentos.add(departamento);
+			lista_departamentos.add(departamento);
 			JSONObject Departamentos = new JSONObject();
 			Departamentos.put("N_depto",departamento.getNumero_depto());
 			Departamentos.put("Nombre",departamento.getNombre());
 			Departamentos.put("Cantidad Trabajadores",departamento.getCantidad_trabajadores());
 		//	arreglo_departamentos.put(Departamentos);
 			id_depto++;
-			lista.put("Trabajador"+(id_depto+1), Departamentos);
-     	  Gson gson = new GsonBuilder().setPrettyPrinting().create();
-     	  String json = gson.toJson(lista);
+			lista.put("Trabajador"+(id_depto), Departamentos);
+     	    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+     	    String json = gson.toJson(lista);
 	
      	  FileWriter file;
 		try {
