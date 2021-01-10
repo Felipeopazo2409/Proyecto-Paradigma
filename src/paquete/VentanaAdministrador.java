@@ -2,6 +2,7 @@ package paquete;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -13,6 +14,7 @@ public class VentanaAdministrador extends JFrame {
 	public PanelInsertarDepto insertar;
 	public PanelEliminarDepto eliminar;
 	public PanelMostrarDepto mostrar_info;
+	public ArrayList<Departamento> lista_departamentos = new ArrayList();
 	public VentanaAdministrador() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,6 +28,7 @@ public class VentanaAdministrador extends JFrame {
 		 add(scrollpane);
 		 navegacion();
 		 volver_atras();
+		 insertar_datos();
 		 
 	}
 	public void navegacion() {
@@ -58,7 +61,7 @@ public class VentanaAdministrador extends JFrame {
 	}
 	
 	private void volver_atras() {
-		insertar.guardar.addActionListener(new ActionListener() {
+		insertar.volver_menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(admin);
 			}
@@ -74,6 +77,17 @@ public class VentanaAdministrador extends JFrame {
 				scrollpane.setViewportView(admin);
 			}
 		});
+	}
+	
+	private void insertar_datos() {
+		insertar.guardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				crear_json();
+			}
+		});
+	}
+	private void crear_json() {
+		
 	}
 	
 	

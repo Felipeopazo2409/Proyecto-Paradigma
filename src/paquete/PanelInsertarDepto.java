@@ -13,8 +13,8 @@ import javax.swing.JTextField;
 
 public class PanelInsertarDepto extends JPanel{
 	private JLabel titulo,n_depto,nombre,numero,trabajadores,icon,mensaje;
-	private JTextField campo1,campo2,campo3,campo4;
-	public JButton mostrar_informacion,guardar;
+	public JTextField campo1,campo2,campo3,campo4;
+	public JButton volver_menu,guardar;
 	public PanelInsertarDepto() {
 		setLayout(null);
 		setBackground(Color.orange);
@@ -66,19 +66,14 @@ public class PanelInsertarDepto extends JPanel{
 		add(campo3);
 	}
 	private void cargarComponentesButton() {
-		mostrar_informacion = new JButton("Mostrar Lista de trabajadores");
-		mostrar_informacion.setBounds(240,320,280,35);
-		mostrar_informacion.setFont(new Font("Helvetica",Font.PLAIN,18));
+		volver_menu = new JButton("Menú Principal");
+		volver_menu.setBounds(240,320,280,35);
+		volver_menu.setFont(new Font("Helvetica",Font.PLAIN,18));
 		guardar = new JButton("Guardar Informacion");
 		guardar.setBounds(240,375,280,35);
 		guardar.setFont(new Font("Helvetica",Font.PLAIN,18));
-		guardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mensaje.setText("Se ha guardado la información exitosamente");
-			}
-		});
 		
-	    add(mostrar_informacion);
+	    add(volver_menu);
 		add(guardar);
 	
 	}

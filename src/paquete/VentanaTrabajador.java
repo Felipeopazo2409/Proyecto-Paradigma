@@ -40,9 +40,11 @@ public class VentanaTrabajador extends JFrame{
 	private PanelConsultarDatos panelConsultarTrabajador;
 	private PanelLiquidacionSueldo panelLiquidacionTrabajador;
 	public Trabajador trabajador;
-	public ArrayList<Trabajador> lista_trabajadores;
+	public ArrayList<Trabajador> lista_trabajadores = new ArrayList();
+	public JSONArray arreglo;
 	public VentanaTrabajador() {
 		panel = new PanelTrabajador();
+		arreglo = new JSONArray();
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -152,9 +154,25 @@ public class VentanaTrabajador extends JFrame{
 		});
 		
 	}
-	private void crear_json() {
+	private void imprimir() {
+	
+		JSONObject trabajador = new JSONObject();
+		for(int i = 0 ; i< lista_trabajadores.size();i++) {
+			trabajador.put("Nombre", lista_trabajadores.get(i).getNombre());
+			trabajador.put("Apellido Paterno", lista_trabajadores.get(i).getAPaterno());
+			trabajador.put("Apellido Materno",lista_trabajadores.get(i).getAMaterno());
+			trabajador.put("Rut", lista_trabajadores.get(i).getRut());
+			trabajador.put("Fecha de Nacimiento",lista_trabajadores.get(i).getFecha());
+			trabajador.put("Tipo Contrato", lista_trabajadores.get(i).getContrato());
+			trabajador.put("Salario", lista_trabajadores.get(i).getSalario());
+			trabajador.put("Departamento",lista_trabajadores.get(i).getDepartamento());
+			arreglo.put(trabajador);
+		}
 		
-		lista_trabajadores = new ArrayList();
+		System.out.println("Largo: "+lista_trabajadores.size());
+		
+	}
+	private void crear_json() {
 		
 		String nombre = panelInsertarTrabajador.campoNombre.getText();
 		String apellidoP = panelInsertarTrabajador.campoApellidoPaterno.getText();
@@ -167,23 +185,28 @@ public class VentanaTrabajador extends JFrame{
 		int rut = Integer.parseInt(obtener_rut);
 		int salario = Integer.parseInt(obtener_salario);
 		
-		lista_trabajadores.add(new Trabajador(nombre,apellidoP,apellidoM,rut,fecha,tipo_contrato,salario,departamento));
+		trabajador = new Trabajador(nombre,apellidoP,apellidoM,rut,fecha,tipo_contrato,salario,departamento);
 		
-		Gson gson = new Gson();
+		lista_trabajadores.add(trabajador);
+		
+		imprimir();
+		
+	/*	Gson gson = new Gson();
 		
 		String json = gson.toJson(lista_trabajadores);
 		
 		FileWriter file;
 		
 		try {
-			file = new FileWriter("Trabajadores.json");
+			file = new FileWriter("Trabajadores.json",true);
 			file.write(json);
 			file.flush();
 			file.close();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		
+		*/
+	
 	}
 	
 	
@@ -196,7 +219,7 @@ public class VentanaTrabajador extends JFrame{
 					Reader myReader = Files.newBufferedReader(Paths.get("Trabajadores.json"));
 					Gson gson= new Gson();
 					Map <?,?> MapTrabajadores = gson.fromJson(myReader, Map.class);
-					System.out.println(MapTrabajadores.get("Nombre"));
+					System.out.println(MapTrabajadores.get("rut"));
 				}catch(IOException e1) {
 					e1.printStackTrace();
 				}
