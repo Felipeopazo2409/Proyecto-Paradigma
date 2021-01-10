@@ -30,11 +30,13 @@ import com.google.gson.Gson;
 
 
 public class VentanaTrabajador extends JFrame{
-	
+	/*
+	 * 				HOLA VICENTE 
+	 * 
+	 * */
 	public PanelTrabajador panel;
 	private JScrollPane scrollpane;
 	public PanelInsertarTrabajador panelInsertarTrabajador;
-	public PanelValidarTrabajador panelValidarTrabajador;
 	public PanelModificarTrabajador panelModificarTrabajador;
 	public PanelEliminarTrabajador panelEliminarTrabajador;
 	private PanelConsultarDatos panelConsultarTrabajador;
@@ -42,6 +44,7 @@ public class VentanaTrabajador extends JFrame{
 	public Trabajador trabajador;
 	public ArrayList<Trabajador> lista_trabajadores = new ArrayList();
 	public JSONArray arreglo;
+	public int id_trabador = 0;
 	public VentanaTrabajador() {
 		panel = new PanelTrabajador();
 		arreglo = new JSONArray();
@@ -69,7 +72,7 @@ public class VentanaTrabajador extends JFrame{
 		panelEliminarTrabajador = new PanelEliminarTrabajador ();
 		panelConsultarTrabajador = new PanelConsultarDatos();
 		panelLiquidacionTrabajador = new PanelLiquidacionSueldo ();
-		panelValidarTrabajador = new PanelValidarTrabajador();
+
 		//pinchar boton para ingresar un trabajador
 		panel.ingresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -80,7 +83,7 @@ public class VentanaTrabajador extends JFrame{
 		//Pinchar Boton para modificar un trabajador
 		panel.modificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(panelValidarTrabajador);
+				scrollpane.setViewportView(panelModificarTrabajador);
 				
 			}
 		});
@@ -166,7 +169,6 @@ public class VentanaTrabajador extends JFrame{
 			trabajador.put("Tipo Contrato", lista_trabajadores.get(i).getContrato());
 			trabajador.put("Salario", lista_trabajadores.get(i).getSalario());
 			trabajador.put("Departamento",lista_trabajadores.get(i).getDepartamento());
-			arreglo.put(trabajador);
 		}
 		
 		System.out.println("Largo: "+lista_trabajadores.size());
