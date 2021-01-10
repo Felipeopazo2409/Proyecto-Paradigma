@@ -2,10 +2,13 @@ package paquete;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -23,8 +26,16 @@ public class PanelLiquidacionSueldo extends JPanel {
 		labels();
 		campos();
 		botones();
+		liquidacion();
 	}
-
+	private void liquidacion () {
+		calcular_salario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				liquidacionSueldo();
+				JOptionPane.showMessageDialog(null, "hola hola");
+			}
+		});
+	}
 	private void labels() {
 		titulo = new JLabel("Liquidacion de Sueldo");
 		titulo.setBounds(300, 80, 400, 40);
@@ -71,7 +82,6 @@ public class PanelLiquidacionSueldo extends JPanel {
 	private void botones() {
 		volver_menu = new JButton("Volver al Menú principal");
 		volver_menu.setBounds(400, 300, 200, 30);
-
 		calcular_salario = new JButton("Calcular Sueldo");
 		calcular_salario.setBounds(200, 300, 200, 30);
 		add(volver_menu);

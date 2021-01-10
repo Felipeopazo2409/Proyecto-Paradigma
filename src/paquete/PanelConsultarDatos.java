@@ -15,10 +15,10 @@ import javax.swing.JTextField;
 public class PanelConsultarDatos extends JPanel {
 	private JLabel titulo,icono;
 	private JLabel nombre,apellidoP,apellidoM,rut,fecha_nacimiento,tipo_contrato,salario,departamento;
-    private JTextArea campoNombre,campoApellidoMaterno,campoApellidoPaterno,campoNacimiento,campo_contrato,camposalario,campodepartamento;
-    private JTextField campo_rut;
+    public JTextArea campoNombre,campoApellidoMaterno,campoApellidoPaterno,campoNacimiento,campo_contrato,camposalario,campodepartamento;
+    public JTextField campo_rut;
     public JButton volver_menu;
-    public JButton limpiar,buscar;
+    public JButton buscar;
 	public PanelConsultarDatos() {
 		setLayout(null);
 		setBackground(Color.orange);
@@ -118,18 +118,14 @@ public class PanelConsultarDatos extends JPanel {
 	
 	public void cargarComponentesButton() {
 		buscar = new JButton("Buscar Trabajador");
-		buscar.setBounds(500,200,230,40);
+		buscar.setBounds(500,150,230,40);
 		buscar.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
-		limpiar = new JButton("Limpiar Pantalla");
-		limpiar.setBounds(500,250,230,40);
-		limpiar.setFont(new Font("Helvetica",Font.PLAIN,16));
-	
 		volver_menu = new JButton("Volver al menu principal");
-		volver_menu.setBounds(500,300,230,40);
+		volver_menu.setBounds(500,230,230,40);
 		volver_menu.setFont(new Font("Helvetica",Font.PLAIN,16));
 		add(buscar);
-		add(limpiar);
+		
 		add(volver_menu);
 		
 	}	
