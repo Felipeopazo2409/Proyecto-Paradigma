@@ -16,7 +16,7 @@ public class PanelModificarTrabajador extends JPanel {
 	private JLabel nombre, apellidoP, apellidoM, rut, fecha_nacimiento, tipo_contrato, salario, departamento;
 	public JTextField campoNombre, campoApellidoMaterno, campoApellidoPaterno, campoRut, campoNacimiento, campoSalario,
 			campoDepartamento,campo_contrato;
-	public JButton guardar, cancelar, buscar,limpiar_pantalla;
+	public JButton guardar, cancelar, buscar;
 	private String[] contratos = { "Full-time", "Part-Time" };
 	public static int cantidadTrabajadores;
 
@@ -126,20 +126,17 @@ public class PanelModificarTrabajador extends JPanel {
 
 	private void botones() {
 		buscar = new JButton("Buscar Trabajador");
-		buscar.setBounds(470, 170, 200, 40);
+		buscar.setBounds(470, 200, 200, 40);
 
 		guardar = new JButton("Guardar Nuevo Trabajador");
-		guardar.setBounds(470, 240, 200, 40);
+		guardar.setBounds(470, 270, 200, 40);
 		
-		limpiar_pantalla = new JButton("Limpiar pantalla");
-		limpiar_pantalla.setBounds(470,310,200,40);
 
 		cancelar = new JButton("Cancelar");
-		cancelar.setBounds(470, 380, 200, 40);
+		cancelar.setBounds(470, 340, 200, 40);
 		
 		
 		add(guardar);
-		add(limpiar_pantalla);
 		add(cancelar);
 		add(buscar);
 	}

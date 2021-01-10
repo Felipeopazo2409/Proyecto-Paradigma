@@ -55,89 +55,9 @@ public class VentanaTrabajador extends JFrame {
 		navegacion();
 		volver_atras();
 		insertarDatos();
-		buscar_informacion();
+		modificar_informacion();
 		eliminar_trabajador();
-		limpiar_pantalla();
-	}
-	private void limpiar_pantalla() {
-		
-		panelInsertarTrabajador.limpiar_pantalla.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelModificarTrabajador.campoNombre.setText("");
-				panelModificarTrabajador.campoApellidoPaterno.setText("");
-				panelModificarTrabajador.campoApellidoMaterno.setText("");
-				panelModificarTrabajador.campoNacimiento.setText("");
-				panelModificarTrabajador.campo_contrato.setText("");
-				panelModificarTrabajador.campoSalario.setText("");
-				panelModificarTrabajador.campoDepartamento.setText("");
-			}
-		});
-		
-		panelInsertarTrabajador.limpiar_pantalla.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelInsertarTrabajador.campoNombre.setText("");
-				panelInsertarTrabajador.campoApellidoPaterno.setText("");
-				panelInsertarTrabajador.campoApellidoMaterno.setText("");
-				panelInsertarTrabajador.campoNacimiento.setText("");
-				panelInsertarTrabajador.campoRut.setText("");
-				panelInsertarTrabajador.campoSalario.setText("");
-				panelInsertarTrabajador.campoDepartamento.setText("");
-			}
-		});
-		
-		panelEliminarTrabajador.limpiar_pantalla.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelEliminarTrabajador.campoNombre.setText("");
-				panelEliminarTrabajador.campoApellidoPaterno.setText("");
-				panelEliminarTrabajador.campoApellidoMaterno.setText("");
-				panelEliminarTrabajador.campoNacimiento.setText("");
-				panelEliminarTrabajador.campo_contrato.setText("");
-				panelEliminarTrabajador.camposalario.setText("");
-				panelEliminarTrabajador.campodepartamento.setText("");
-			}
-		});
-		
-		
-	}
 	
-	
-	private void eliminar_trabajador() {
-		panelEliminarTrabajador.buscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String obtener_rut = panelEliminarTrabajador.campo_rut.getText();
-				int rut = Integer.parseInt(obtener_rut);
-				boolean encontrado = false;
-				for (int i =0;i<lista_trabajadores.size();i++) {
-					if (lista_trabajadores.get(i).getRut()== rut) {
-						encontrado = true;
-						pos_eliminar = i;
-						panelEliminarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
-						panelEliminarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
-						panelEliminarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
-						panelEliminarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
-						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
-						panelEliminarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
-						panelEliminarTrabajador.camposalario.setText(salario);
-						panelEliminarTrabajador.campodepartamento.setText(lista_trabajadores.get(i).getDepartamento());
-					}
-				}
-				if(encontrado == true) {
-					JOptionPane.showMessageDialog(null, "Se ha encontrado el trabajador");
-				}else {
-					JOptionPane.showMessageDialog(null, "El trabajador no existe");
-				}
-				
-				
-			}
-		});
-		
-		panelEliminarTrabajador.eliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				lista_trabajadores.remove(pos_eliminar);
-				JOptionPane.showMessageDialog(null,"Trabajador eliminado exitosamente");
-			}
-		});
-		
 	}
 	private void Inicializar() {
 		scrollpane = new JScrollPane();
@@ -145,7 +65,7 @@ public class VentanaTrabajador extends JFrame {
 		scrollpane.setViewportView(panel);
 		add(scrollpane);
 	}
-
+	
 	private void navegacion() {//Navegamos por los diferentes paneles
 		// Instancia de paneles
 		panelInsertarTrabajador = new PanelInsertarTrabajador();
@@ -191,6 +111,8 @@ public class VentanaTrabajador extends JFrame {
 		});
 	}
 
+
+	
 	private void volver_atras() {
 		panelInsertarTrabajador.cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -227,12 +149,39 @@ public class VentanaTrabajador extends JFrame {
 		panelInsertarTrabajador.guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				insertarTrabajadores();
+				panelInsertarTrabajador.campoNombre.setText("");
+				panelInsertarTrabajador.campoApellidoPaterno.setText("");
+				panelInsertarTrabajador.campoApellidoMaterno.setText("");
+				panelInsertarTrabajador.campoNacimiento.setText("");
+				panelInsertarTrabajador.campoRut.setText("");
+				panelInsertarTrabajador.campoSalario.setText("");
+				panelInsertarTrabajador.campoDepartamento.setText("");
 				JOptionPane.showMessageDialog(null, "Trabajador ingresado Exitosamente");
 			}
 		});
 
 	}
-	private void buscar_informacion() {
+
+	private void insertarTrabajadores() {
+
+		String nombre = panelInsertarTrabajador.campoNombre.getText();
+		String apellidoP = panelInsertarTrabajador.campoApellidoPaterno.getText();
+		String apellidoM = panelInsertarTrabajador.campoApellidoMaterno.getText();
+		String obtener_rut = panelInsertarTrabajador.campoRut.getText();
+		String fecha = panelInsertarTrabajador.campoNacimiento.getText();
+		String tipo_contrato = panelInsertarTrabajador.contrato.getSelectedItem().toString();
+		String obtener_salario = panelInsertarTrabajador.campoSalario.getText();
+		String departamento = panelInsertarTrabajador.campoDepartamento.getText();
+		int rut = Integer.parseInt(obtener_rut);
+		int salario = Integer.parseInt(obtener_salario);
+		System.out.println("Salario: "+salario);
+		trabajador = new Trabajador(nombre, apellidoP, apellidoM, rut, fecha, tipo_contrato, salario, departamento);
+		lista_trabajadores.add(trabajador);
+
+
+	}
+
+	private void modificar_informacion() {
 		
 		panelModificarTrabajador.buscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -263,8 +212,7 @@ public class VentanaTrabajador extends JFrame {
 			
 		});
 		
-	
-		
+		//Guardamos la información del trabajador modificado
 		panelModificarTrabajador.guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -291,6 +239,13 @@ public class VentanaTrabajador extends JFrame {
 				lista_trabajadores.get(pos).setSalario(salario);
 				
 				//Mensaje De alerta
+				panelModificarTrabajador.campoNombre.setText("");
+				panelModificarTrabajador.campoApellidoPaterno.setText("");
+				panelModificarTrabajador.campoApellidoMaterno.setText("");
+				panelModificarTrabajador.campoNacimiento.setText("");
+				panelModificarTrabajador.campo_contrato.setText("");
+				panelModificarTrabajador.campoSalario.setText("");
+				panelModificarTrabajador.campoDepartamento.setText("");
 				JOptionPane.showMessageDialog(null, "Trabajador Modificado exitosamente");
 				
 			}
@@ -298,45 +253,54 @@ public class VentanaTrabajador extends JFrame {
 		
 		
 	}
+	private void eliminar_trabajador() {
+		panelEliminarTrabajador.buscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String obtener_rut = panelEliminarTrabajador.campo_rut.getText();
+				int rut = Integer.parseInt(obtener_rut);
+				boolean encontrado = false;
+				for (int i =0;i<lista_trabajadores.size();i++) {
+					if (lista_trabajadores.get(i).getRut()== rut) {
+						encontrado = true;
+						pos_eliminar = i;
+						panelEliminarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
+						panelEliminarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
+						panelEliminarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
+						panelEliminarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
+						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
+						panelEliminarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
+						panelEliminarTrabajador.camposalario.setText(salario);
+						panelEliminarTrabajador.campodepartamento.setText(lista_trabajadores.get(i).getDepartamento());
+					}
+				}
+				if(encontrado == true) {
+					JOptionPane.showMessageDialog(null, "Se ha encontrado el trabajador");
+				}else {
+					JOptionPane.showMessageDialog(null, "El trabajador no existe");
+				}
+				
+				
+				
+			}
+		});
+		
+		panelEliminarTrabajador.eliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lista_trabajadores.remove(pos_eliminar);
+				panelEliminarTrabajador.campoNombre.setText("");
+				panelEliminarTrabajador.campoApellidoPaterno.setText("");
+				panelEliminarTrabajador.campoApellidoMaterno.setText("");
+				panelEliminarTrabajador.campoNacimiento.setText("");
+				panelEliminarTrabajador.campo_contrato.setText("");
+				panelEliminarTrabajador.camposalario.setText("");
+				panelEliminarTrabajador.campodepartamento.setText("");
+				JOptionPane.showMessageDialog(null,"Trabajador eliminado exitosamente");
+			}
+		});
+		
+	}
 	
-	
-
-	private void imprimirTrabajadores() {
-		for (int i = 0; i < lista_trabajadores.size(); i++) {
-			System.out.println("Nombre: "+lista_trabajadores.get(i).getNombre());
-			System.out.println("Apellido Paterno: "+lista_trabajadores.get(i).getAPaterno());
-			System.out.println("Apellido Materno: "+lista_trabajadores.get(i).getAMaterno());
-			System.out.println("Rut: "+lista_trabajadores.get(i).getRut());
-			System.out.println("Fecha de Nacimiento: "+ lista_trabajadores.get(i).getFecha());
-			System.out.println("Tipo Contrato: "+lista_trabajadores.get(i).getContrato());
-			System.out.println("Salario: "+ lista_trabajadores.get(i).getSalario());
-			System.out.println("Departamento: "+ lista_trabajadores.get(i).getDepartamento());
-		}
-
 	}
 	
 
 	
-
-	private void insertarTrabajadores() {
-
-		String nombre = panelInsertarTrabajador.campoNombre.getText();
-		String apellidoP = panelInsertarTrabajador.campoApellidoPaterno.getText();
-		String apellidoM = panelInsertarTrabajador.campoApellidoMaterno.getText();
-		String obtener_rut = panelInsertarTrabajador.campoRut.getText();
-		String fecha = panelInsertarTrabajador.campoNacimiento.getText();
-		String tipo_contrato = panelInsertarTrabajador.contrato.getSelectedItem().toString();
-		String obtener_salario = panelInsertarTrabajador.campoSalario.getText();
-		String departamento = panelInsertarTrabajador.campoDepartamento.getText();
-		int rut = Integer.parseInt(obtener_rut);
-		int salario = Integer.parseInt(obtener_salario);
-		System.out.println("Salario: "+salario);
-		trabajador = new Trabajador(nombre, apellidoP, apellidoM, rut, fecha, tipo_contrato, salario, departamento);
-		lista_trabajadores.add(trabajador);
-
-
-	}
-
-
-
-}

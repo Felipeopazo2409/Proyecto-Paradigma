@@ -17,7 +17,7 @@ public class PanelEliminarTrabajador extends JPanel {
 	private JLabel nombre, apellidoP, apellidoM, rut, fecha_nacimiento, tipo_contrato, salario, departamento;
 	public JTextArea campoNombre, campoApellidoMaterno, campoApellidoPaterno, campoNacimiento, campo_contrato,
 			camposalario, campodepartamento;
-	public JButton eliminar, cancelar, buscar,limpiar_pantalla;
+	public JButton eliminar, cancelar, buscar;
 	public JTextField campo_rut;
 
 	public PanelEliminarTrabajador() {
@@ -139,12 +139,9 @@ public class PanelEliminarTrabajador extends JPanel {
 		eliminar.setBounds(470, 300, 250, 30);
 		eliminar.setFont(new Font("Helvetica", Font.PLAIN, 18));
 
-		limpiar_pantalla = new JButton("Limpiar Pantalla");
-		limpiar_pantalla.setBounds(470,200,250,30);
-		limpiar_pantalla.setFont(new Font("Helvetica", Font.PLAIN, 18));
 		add(buscar);
 		add(eliminar);
 		add(cancelar);
-		add(limpiar_pantalla);
+	
 	}
 }
