@@ -8,11 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
 
 public class PanelLiquidacionSueldo extends JPanel {
-	private JLabel titulo, icon, salario_por_hora, sueldo;
+	private JLabel tipo_contrato, titulo, icon, salario_por_hora, sueldo;
 	public JButton volver_menu, calcular_salario;
-	private JTextField campo_rut, campo_salario;
+	public JTextField campo_rut, campo_salario;
+	public JComboBox contrato;
+	private final String[] contratos = { "Full-time", "Part-Time" };
 
 	public PanelLiquidacionSueldo() {
 		setLayout(null);
@@ -34,9 +37,17 @@ public class PanelLiquidacionSueldo extends JPanel {
 		salario_por_hora.setBounds(200, 140, 520, 40);
 		salario_por_hora.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
+		tipo_contrato = new JLabel("Tipo de contrato ");
+		tipo_contrato.setBounds(200, 220, 300, 40);
+		tipo_contrato.setFont(new Font("Helvetica", Font.PLAIN, 20));
+
+		contrato = new JComboBox(contratos);
+		contrato.setBounds(350, 240, 180, 25);
 		add(titulo);
 		add(icon);
 		add(salario_por_hora);
+		add(tipo_contrato);
+		add(contrato);
 	}
 
 	private void campos() {
@@ -46,14 +57,24 @@ public class PanelLiquidacionSueldo extends JPanel {
 		add(campo_salario);
 	}
 
+	private void liquidacionSueldo() {
+		double salario = Integer.parseInt(campo_salario.getText()) + 30000;
+		double afp = 0.1 * salario;
+		double sistema_pension = 0.07 * salario;
+		if (contrato.getSelectedItem().toString() == "Full-Time") {
+
+		}
+	}
+
 	private void botones() {
 		volver_menu = new JButton("Volver al Menú principal");
-		volver_menu.setBounds(400, 250, 200, 30);
+		volver_menu.setBounds(400, 300, 200, 30);
 
 		calcular_salario = new JButton("Calcular Sueldo");
-		calcular_salario.setBounds(200, 250, 200, 30);
+		calcular_salario.setBounds(200, 300, 200, 30);
 		add(volver_menu);
 		add(calcular_salario);
 
 	}
+
 }
