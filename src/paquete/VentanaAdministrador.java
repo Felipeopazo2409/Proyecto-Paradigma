@@ -25,6 +25,7 @@ public class VentanaAdministrador extends JFrame {
 	public ArrayList<Departamento> lista_departamentos = new ArrayList();
 	public Departamento departamento;
 	public JSONArray arreglo_departamentos = new JSONArray();
+	public int id_depto=0;
 	public VentanaAdministrador() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,17 +107,19 @@ public class VentanaAdministrador extends JFrame {
 		int n_trabajadores = Integer.parseInt(numero_trabajadores);
 		
 		departamento = new Departamento(numero_depto,nombre,n_trabajadores);
-		
+			JSONObject lista = new JSONObject();
 		   lista_departamentos.add(departamento);
 			JSONObject Departamentos = new JSONObject();
 			Departamentos.put("N_depto",departamento.getNumero_depto());
 			Departamentos.put("Nombre",departamento.getNombre());
 			Departamentos.put("Cantidad Trabajadores",departamento.getCantidad_trabajadores());
-			arreglo_departamentos.put(Departamentos);
-		
+		//	arreglo_departamentos.put(Departamentos);
+			id_depto++;
+			lista.put("Trabajador"+(id_depto+1), Departamentos);
      	  Gson gson = new GsonBuilder().setPrettyPrinting().create();
-     	  String json = gson.toJson(arreglo_departamentos);
-		FileWriter file;
+     	  String json = gson.toJson(lista);
+	
+     	  FileWriter file;
 		try {
 			file = new FileWriter("Departamentos.json");
 			file.write(json.toString());

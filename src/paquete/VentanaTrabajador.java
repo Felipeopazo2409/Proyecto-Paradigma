@@ -31,7 +31,7 @@ import com.google.gson.Gson;
 
 public class VentanaTrabajador extends JFrame{
 	/*
-	 * 				HOLA VICENTE 
+	 * 		Hola Cupa
 	 * 
 	 * */
 	public PanelTrabajador panel;

@@ -1,18 +1,11 @@
 {
-  "myArrayList": [
-    {
+  "map": {
+    "Trabajador1": {
       "map": {
-        "Nombre": "Informatica",
-        "Cantidad Trabajadores": 20,
-        "N_depto": 252
-      }
-    },
-    {
-      "map": {
-        "Nombre": "Aseo",
-        "Cantidad Trabajadores": 10,
-        "N_depto": 200
+        "Nombre": "aseodasd",
+        "Cantidad Trabajadores": 15,
+        "N_depto": 258
       }
     }
-  ]
+  }
 }
