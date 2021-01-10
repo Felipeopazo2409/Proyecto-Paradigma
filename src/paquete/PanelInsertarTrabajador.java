@@ -22,12 +22,9 @@ public class PanelInsertarTrabajador extends JPanel{
 	private JLabel titulo,icono;
 	private JLabel nombre,apellidoP,apellidoM,rut,fecha_nacimiento,tipo_contrato,salario,departamento;
 	public JTextField campoNombre,campoApellidoMaterno,campoApellidoPaterno,campoRut,campoNacimiento,campoSalario,campoDepartamento;
-	public JButton guardar,cancelar;
-	public JComboBox contrato,dia,mes,año;
+	public JButton guardar,cancelar,limpiar_pantalla;
+	public JComboBox contrato;
 	private String[] contratos = {"Full-time","Part-Time"}; 
-	private String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre",
-			"Octubre","Noviembre","Diciembre"};
-	public static int cantidadTrabajadores;
 	public PanelInsertarTrabajador() {
 		setLayout(null);
 		setBackground(Color.ORANGE);
@@ -138,16 +135,20 @@ public class PanelInsertarTrabajador extends JPanel{
 		
 	}
 	private void botones() {
-
+		
+		limpiar_pantalla = new JButton("Limpiar Pantalla");
+		limpiar_pantalla.setBounds(470,130,250,40);
+		limpiar_pantalla.setFont(new Font("Helvetica",Font.PLAIN,16));
+		
 		guardar = new JButton("Guardar Nuevo Trabajador");
 		guardar.setBounds(470,200,250,40);
 		guardar.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
-		cancelar = new JButton("Cancelar");
+		cancelar = new JButton("Volver al menú principal");
 		cancelar.setBounds(470,270,250,40);
 		cancelar.setFont(new Font("Helvetica",Font.PLAIN,16));
 		
-		
+		add(limpiar_pantalla);
 		add(guardar);
 		add(cancelar);
 		

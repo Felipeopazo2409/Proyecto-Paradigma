@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import org.json.JSONArray;
@@ -22,10 +23,9 @@ public class VentanaAdministrador extends JFrame {
 	public PanelInsertarDepto insertar;
 	public PanelEliminarDepto eliminar;
 	public PanelMostrarDepto mostrar_info;
-	public ArrayList<Departamento> lista_departamentos = new ArrayList();
+	public ArrayList<Departamento> lista_departamentos = new ArrayList<Departamento>();
+	ArrayList<String> nombres_departamentos;
 	public Departamento departamento;
-	public JSONArray arreglo_departamentos = new JSONArray();
-	public int id_depto=0;
 	public VentanaAdministrador() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,9 +40,27 @@ public class VentanaAdministrador extends JFrame {
 		 navegacion();
 		 volver_atras();
 		 insertar_datos();
-		 
+		 mostrar_informacion();
 	}
-	public void navegacion() {
+	
+	private void mostrar_informacion() {
+		nombres_departamentos = new ArrayList<String>();
+		mostrar_info.mostrar_lista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for(int i=0; i<lista_departamentos.size();i++) {
+					System.out.println("Departamento: "+(i+1));
+					System.out.println("N_Depto: "+lista_departamentos.get(i).getNumero_depto());
+					System.out.println("Nombre: "+lista_departamentos.get(i).getNombre());
+					System.out.println("Cantidad De trabajadores: "+lista_departamentos.get(i).getCantidad_trabajadores());
+					System.out.println("\n\n");
+					nombres_departamentos.add(lista_departamentos.get(i).getNombre());
+				}
+			}
+		});
+		
+	}
+	
+	private void navegacion() {
 		insertar = new PanelInsertarDepto();
 		eliminar = new PanelEliminarDepto();
 		mostrar_info = new PanelMostrarDepto();
@@ -93,11 +111,12 @@ public class VentanaAdministrador extends JFrame {
 	private void insertar_datos() {
 		insertar.guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				crear_json();
+				llenar_lista();
+				JOptionPane.showMessageDialog(null, "Departamento Ingresado Exitosamente");
 			}
 		});
 	}
-	private void crear_json() {
+	private void llenar_lista() {
 		//Obtenemos informacion desde los campos textField, para poder instanciar un objeto de 
 		//Departamento
 		String n_depto = insertar.campo1.getText();
@@ -105,29 +124,9 @@ public class VentanaAdministrador extends JFrame {
 		String numero_trabajadores= insertar.campo3.getText();
 		int numero_depto = Integer.parseInt(n_depto);
 		int n_trabajadores = Integer.parseInt(numero_trabajadores);
-		
-			departamento = new Departamento(numero_depto,nombre,n_trabajadores);
-			JSONObject lista = new JSONObject();
-			lista_departamentos.add(departamento);
-			JSONObject Departamentos = new JSONObject();
-			Departamentos.put("N_depto",departamento.getNumero_depto());
-			Departamentos.put("Nombre",departamento.getNombre());
-			Departamentos.put("Cantidad Trabajadores",departamento.getCantidad_trabajadores());
-		//	arreglo_departamentos.put(Departamentos);
-			id_depto++;
-			lista.put("Trabajador"+(id_depto), Departamentos);
-     	    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-     	    String json = gson.toJson(lista);
-	
-     	  FileWriter file;
-		try {
-			file = new FileWriter("Departamentos.json");
-			file.write(json.toString());
-			file.flush();
-			file.close();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
+		departamento = new Departamento(numero_depto,nombre,n_trabajadores);
+		lista_departamentos.add(departamento);
+			
 	}
 	
 	

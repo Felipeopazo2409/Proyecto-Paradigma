@@ -15,10 +15,10 @@ import javax.swing.SwingConstants;
 public class PanelEliminarTrabajador extends JPanel {
 	private JLabel titulo, icono, titulo2;
 	private JLabel nombre, apellidoP, apellidoM, rut, fecha_nacimiento, tipo_contrato, salario, departamento;
-	private JTextArea campoNombre, campoApellidoMaterno, campoApellidoPaterno, campoNacimiento, campo_contrato,
+	public JTextArea campoNombre, campoApellidoMaterno, campoApellidoPaterno, campoNacimiento, campo_contrato,
 			camposalario, campodepartamento;
-	public JButton eliminar, cancelar, buscar;
-	private JTextField campo_rut;
+	public JButton eliminar, cancelar, buscar,limpiar_pantalla;
+	public JTextField campo_rut;
 
 	public PanelEliminarTrabajador() {
 		setLayout(null);
@@ -128,7 +128,7 @@ public class PanelEliminarTrabajador extends JPanel {
 	private void botones() {
 
 		buscar = new JButton("Buscar Trabajador");
-		buscar.setBounds(150, 120, 250, 30);
+		buscar.setBounds(190, 120, 250, 30);
 		buscar.setFont(new Font("Helvetica", Font.PLAIN, 18));
 
 		cancelar = new JButton("Cancelar");
@@ -139,9 +139,12 @@ public class PanelEliminarTrabajador extends JPanel {
 		eliminar.setBounds(470, 300, 250, 30);
 		eliminar.setFont(new Font("Helvetica", Font.PLAIN, 18));
 
+		limpiar_pantalla = new JButton("Limpiar Pantalla");
+		limpiar_pantalla.setBounds(470,200,250,30);
+		limpiar_pantalla.setFont(new Font("Helvetica", Font.PLAIN, 18));
 		add(buscar);
 		add(eliminar);
 		add(cancelar);
-
+		add(limpiar_pantalla);
 	}
 }

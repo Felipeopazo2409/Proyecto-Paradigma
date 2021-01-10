@@ -14,10 +14,9 @@ import javax.swing.SwingConstants;
 public class PanelModificarTrabajador extends JPanel {
 	private JLabel titulo, icono;
 	private JLabel nombre, apellidoP, apellidoM, rut, fecha_nacimiento, tipo_contrato, salario, departamento;
-	private JTextField campoNombre, campoApellidoMaterno, campoApellidoPaterno, campoRut, campoNacimiento, campoSalario,
-			campoDepartamento;
-	public JButton guardar, cancelar, buscar;
-	private JComboBox contrato;
+	public JTextField campoNombre, campoApellidoMaterno, campoApellidoPaterno, campoRut, campoNacimiento, campoSalario,
+			campoDepartamento,campo_contrato;
+	public JButton guardar, cancelar, buscar,limpiar_pantalla;
 	private String[] contratos = { "Full-time", "Part-Time" };
 	public static int cantidadTrabajadores;
 
@@ -65,9 +64,6 @@ public class PanelModificarTrabajador extends JPanel {
 		tipo_contrato.setBounds(50, 310, 300, 40);
 		tipo_contrato.setFont(new Font("serif", Font.PLAIN, 20));
 
-		JComboBox comboContrato = new JComboBox(contratos);
-		contrato = comboContrato;
-		contrato.setBounds(240, 320, 150, 25);
 
 		salario = new JLabel("Salario por hora ");
 		salario.setBounds(50, 340, 300, 40);
@@ -88,7 +84,6 @@ public class PanelModificarTrabajador extends JPanel {
 		add(tipo_contrato);
 		add(salario);
 		add(icono);
-		add(contrato);
 		add(departamento);
 
 	}
@@ -112,7 +107,10 @@ public class PanelModificarTrabajador extends JPanel {
 
 		campoSalario = new JTextField();
 		campoSalario.setBounds(240, 350, 150, 20);
-
+		
+		campo_contrato = new JTextField();
+		campo_contrato.setBounds(240,320,150,20);
+		
 		campoDepartamento = new JTextField();
 		campoDepartamento.setBounds(240, 380, 150, 20);
 
@@ -123,6 +121,7 @@ public class PanelModificarTrabajador extends JPanel {
 		add(campoNacimiento);
 		add(campoSalario);
 		add(campoDepartamento);
+		add(campo_contrato);
 	}
 
 	private void botones() {
@@ -131,11 +130,16 @@ public class PanelModificarTrabajador extends JPanel {
 
 		guardar = new JButton("Guardar Nuevo Trabajador");
 		guardar.setBounds(470, 240, 200, 40);
+		
+		limpiar_pantalla = new JButton("Limpiar pantalla");
+		limpiar_pantalla.setBounds(470,310,200,40);
 
 		cancelar = new JButton("Cancelar");
-		cancelar.setBounds(470, 310, 200, 40);
-
+		cancelar.setBounds(470, 380, 200, 40);
+		
+		
 		add(guardar);
+		add(limpiar_pantalla);
 		add(cancelar);
 		add(buscar);
 	}
