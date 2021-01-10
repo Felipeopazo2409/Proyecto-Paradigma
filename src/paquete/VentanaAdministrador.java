@@ -2,10 +2,18 @@ package paquete;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class VentanaAdministrador extends JFrame {
 	private JScrollPane scrollpane;
@@ -15,6 +23,8 @@ public class VentanaAdministrador extends JFrame {
 	public PanelEliminarDepto eliminar;
 	public PanelMostrarDepto mostrar_info;
 	public ArrayList<Departamento> lista_departamentos = new ArrayList();
+	public Departamento departamento;
+	public JSONArray arreglo_departamentos = new JSONArray();
 	public VentanaAdministrador() {
 		setSize(780,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,7 +97,34 @@ public class VentanaAdministrador extends JFrame {
 		});
 	}
 	private void crear_json() {
+		//Obtenemos informacion desde los campos textField, para poder instanciar un objeto de 
+		//Departamento
+		String n_depto = insertar.campo1.getText();
+		String nombre = insertar.campo2.getText();
+		String numero_trabajadores= insertar.campo3.getText();
+		int numero_depto = Integer.parseInt(n_depto);
+		int n_trabajadores = Integer.parseInt(numero_trabajadores);
 		
+		departamento = new Departamento(numero_depto,nombre,n_trabajadores);
+		
+		   lista_departamentos.add(departamento);
+			JSONObject Departamentos = new JSONObject();
+			Departamentos.put("N_depto",departamento.getNumero_depto());
+			Departamentos.put("Nombre",departamento.getNombre());
+			Departamentos.put("Cantidad Trabajadores",departamento.getCantidad_trabajadores());
+			arreglo_departamentos.put(Departamentos);
+		
+     	  Gson gson = new GsonBuilder().setPrettyPrinting().create();
+     	  String json = gson.toJson(arreglo_departamentos);
+		FileWriter file;
+		try {
+			file = new FileWriter("Departamentos.json");
+			file.write(json.toString());
+			file.flush();
+			file.close();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

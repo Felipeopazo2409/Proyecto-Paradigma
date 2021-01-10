@@ -195,16 +195,7 @@ public class VentanaTrabajador extends JFrame{
 		
 		String json = gson.toJson(lista_trabajadores);
 		
-		FileWriter file;
 		
-		try {
-			file = new FileWriter("Trabajadores.json",true);
-			file.write(json);
-			file.flush();
-			file.close();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
 		*/
 	
 	}
