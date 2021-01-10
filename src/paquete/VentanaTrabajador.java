@@ -302,29 +302,36 @@ public class VentanaTrabajador extends JFrame {
 	}
 		
 	private void consultar_datos() {
-		String obtener_rut = panelConsultarTrabajador
-		int rut = Integer.parseInt(obtener_rut);
-		boolean encontrado = false;
-		for(int i=0;i<lista_trabajadores.size();i++) {
-			if(lista_trabajadores.get(i).getRut()== rut ) {
+		
+		panelConsultarTrabajador.buscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String obtener_rut = panelConsultarTrabajador.campo_rut.getText();
+				int rut = Integer.parseInt(obtener_rut);
+				boolean encontrado = false;
+				for(int i=0;i<lista_trabajadores.size();i++) {
+					if(lista_trabajadores.get(i).getRut()== rut ) {
 
-				encontrado = true;
-				panelModificarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
-				panelModificarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
-				panelModificarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
-				panelModificarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
-				String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
-				panelModificarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
-				panelModificarTrabajador.campoSalario.setText(salario);
-				panelModificarTrabajador.campoDepartamento.setText(lista_trabajadores.get(i).getDepartamento());
+						encontrado = true;
+						panelConsultarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
+						panelConsultarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
+						panelConsultarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
+						panelConsultarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
+						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
+						panelConsultarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
+						panelConsultarTrabajador.camposalario.setText(salario);;
+						panelConsultarTrabajador.campodepartamento.setText(lista_trabajadores.get(i).getDepartamento());
+					}
+				}
+
+				if (encontrado == true) {
+					JOptionPane.showMessageDialog(null,"Trabajador Encontrado exitosamente");
+				}else {
+					JOptionPane.showMessageDialog(null,"Error al encontrar trabajador,Intente Nuevamente");
+				}
 			}
-		}
-
-		if (encontrado == true) {
-			JOptionPane.showMessageDialog(null,"Trabajador Encontrado exitosamente");
-		}else {
-			JOptionPane.showMessageDialog(null,"Error al encontrar trabajador,Intente Nuevamente");
-		}
+		});
+		
+		
 	}
 	
 	}
