@@ -41,30 +41,15 @@ public class VentanaAdministrador extends JFrame {
 		 volver_atras();
 		 insertar_datos();
 		 mostrar_informacion();
+		 eliminar_departamento();
 	}
 	
-	private void mostrar_informacion() {
-		nombres_departamentos = new ArrayList<String>();
-		mostrar_info.mostrar_lista.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				for(int i=0; i<lista_departamentos.size();i++) {
-					System.out.println("Departamento: "+(i+1));
-					System.out.println("N_Depto: "+lista_departamentos.get(i).getNumero_depto());
-					System.out.println("Nombre: "+lista_departamentos.get(i).getNombre());
-					System.out.println("Cantidad De trabajadores: "+lista_departamentos.get(i).getCantidad_trabajadores());
-					System.out.println("\n\n");
-					nombres_departamentos.add(lista_departamentos.get(i).getNombre());
-				}
-			}
-		});
-		
-	}
 	
 	private void navegacion() {
 		insertar = new PanelInsertarDepto();
 		eliminar = new PanelEliminarDepto();
 		mostrar_info = new PanelMostrarDepto();
-		//Pincho oton para insertar un nuevo departamento
+		//Pincho boton para insertar un nuevo departamento
 		admin.ingresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(insertar);
@@ -89,25 +74,24 @@ public class VentanaAdministrador extends JFrame {
 
 	}
 	
-	private void volver_atras() {
-		insertar.volver_menu.addActionListener(new ActionListener() {
+	
+	
+	private void mostrar_informacion() {
+		nombres_departamentos = new ArrayList<String>();
+		mostrar_info.mostrar_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(admin);
-			}
-		});
-		eliminar.cancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(admin);
+				for(int i=0; i<lista_departamentos.size();i++) {
+					System.out.println("Departamento: "+(i+1));
+					System.out.println("N_Depto: "+lista_departamentos.get(i).getNumero_depto());
+					System.out.println("Nombre: "+lista_departamentos.get(i).getNombre());
+					System.out.println("Cantidad De trabajadores: "+lista_departamentos.get(i).getCantidad_trabajadores());
+					System.out.println("\n\n");
+					nombres_departamentos.add(lista_departamentos.get(i).getNombre());
+				}
 			}
 		});
 		
-		mostrar_info.volver_menu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				scrollpane.setViewportView(admin);
-			}
-		});
 	}
-	
 	private void insertar_datos() {
 		insertar.guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,5 +113,28 @@ public class VentanaAdministrador extends JFrame {
 			
 	}
 	
+
+	private void volver_atras() {
+		insertar.volver_menu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(admin);
+			}
+		});
+		eliminar.cancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(admin);
+			}
+		});
+		
+		mostrar_info.volver_menu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollpane.setViewportView(admin);
+			}
+		});
+	}
+	
+	private void eliminar_departamento() {
+		
+	}
 	
 }

@@ -16,7 +16,7 @@ public class PanelEliminarDepto extends JPanel{
 	private JLabel titulo,icon,nombre,ingresar_n_depto,numero_trabajadores;
 	private JTextField input;
 	private JTextArea campo1,campo2;
-	public JButton eliminar_depto,cancelar;
+	public JButton eliminar_depto,cancelar,buscar;
 	public PanelEliminarDepto() {
 		setLayout(null);
 		setBackground(Color.orange);
@@ -69,15 +69,20 @@ public class PanelEliminarDepto extends JPanel{
 		add(input);
 	}
 	private void botones() {
+		buscar = new JButton("Buscar Departamento");
+		buscar.setBounds(250,300,330,30);
+		buscar.setFont(new Font("Helvetica",Font.PLAIN,18));
+		
+		
 		eliminar_depto = new JButton("Eliminar");
-		eliminar_depto.setBounds(160,300,250,30);
+		eliminar_depto.setBounds(70,380,330,30);
 		eliminar_depto.setFont(new Font("Helvetica",Font.PLAIN,18));
 		
 		cancelar = new JButton("Cancelar");
-		cancelar.setBounds(450,300,250,30);
+		cancelar.setBounds(420,380,330,30);
 		cancelar.setFont(new Font("Helvetica",Font.PLAIN,18));
 		add(eliminar_depto);
 		add(cancelar);
-		
+		add(buscar);
 	}
 }

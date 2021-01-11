@@ -70,10 +70,10 @@ public class PanelInsertarDepto extends JPanel {
 
 	private void cargarComponentesButton() {
 		volver_menu = new JButton("Menú Principal");
-		volver_menu.setBounds(240, 320, 280, 35);
+		volver_menu.setBounds(240, 375, 280, 35);
 		volver_menu.setFont(new Font("Helvetica", Font.PLAIN, 18));
 		guardar = new JButton("Guardar Informacion");
-		guardar.setBounds(240, 375, 280, 35);
+		guardar.setBounds(240, 320, 280, 35);
 		guardar.setFont(new Font("Helvetica", Font.PLAIN, 18));
 
 		add(volver_menu);
