@@ -14,8 +14,8 @@ import javax.swing.SwingConstants;
 
 public class PanelEliminarDepto extends JPanel{
 	private JLabel titulo,icon,nombre,ingresar_n_depto,numero_trabajadores;
-	private JTextField input;
-	private JTextArea campo1,campo2;
+	public JTextField input;
+	public JTextArea campo1,campo2;
 	public JButton eliminar_depto,cancelar,buscar;
 	public PanelEliminarDepto() {
 		setLayout(null);

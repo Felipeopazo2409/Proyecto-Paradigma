@@ -313,7 +313,11 @@ public class VentanaTrabajador extends JFrame {
 
 						encontrado = true;
 						panelConsultarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
+						panelConsultarTrabajador.campoNombre.setEditable(false);
+						
 						panelConsultarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
+						panelConsultarTrabajador.campoApellidoPaterno.setEditable(false);
+						
 						panelConsultarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
 						panelConsultarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
 						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
