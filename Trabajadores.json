@@ -1,254 +1,34 @@
-[
-  {
-    "nombre": "Vicente",
-    "apellido_paterno": "Ortiz ",
-    "apellido_materno": "Matus",
-    "rut": 202543111,
-    "tipo_contrato": "Part-Time",
-    "salario": 0,
-    "fecha_de_nacimiento": "08/04/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova ",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Vicente",
-    "apellido_paterno": "Cordova ",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Nano",
-    "apellido_paterno": "Cordova ",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "asda",
-    "apellido_materno": "Opazo",
-    "rut": 231231,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "123123",
-    "departamento": "12312"
-  }
-][
-  {
-    "nombre": "Vicente",
-    "apellido_paterno": "asda",
-    "apellido_materno": "Opazo",
-    "rut": 231231,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "123123",
-    "departamento": "12312"
-  }
-][
-  {
-    "nombre": "Vicente",
-    "apellido_paterno": "asda",
-    "apellido_materno": "Opazo",
-    "rut": 231231,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "123123",
-    "departamento": "12312"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-][
-  {
-    "nombre": "Felipe",
-    "apellido_paterno": "Cordova",
-    "apellido_materno": "Opazo",
-    "rut": 200880145,
-    "tipo_contrato": "Full-time",
-    "salario": 0,
-    "fecha_de_nacimiento": "24/09/1999",
-    "departamento": "Informatica"
-  }
-]
+{
+  "myArrayList": [
+    {
+      "nombre": "Felipe",
+      "apellido_paterno": "Cordova",
+      "apellido_materno": "Opazo",
+      "rut": 200880145,
+      "tipo_contrato": "Full-time",
+      "salario": 0,
+      "fecha_de_nacimiento": "24/09/1999",
+      "departamento": "Informatica"
+    },
+    {
+      "nombre": "Vicente ",
+      "apellido_paterno": "Ortiz",
+      "apellido_materno": "Matus ",
+      "rut": 131231,
+      "tipo_contrato": "Full-time",
+      "salario": 0,
+      "fecha_de_nacimiento": "312313",
+      "departamento": "123123"
+    },
+    {
+      "nombre": "Delnovio",
+      "apellido_paterno": "burgos",
+      "apellido_materno": "Alarcon",
+      "rut": 23123,
+      "tipo_contrato": "Full-time",
+      "salario": 0,
+      "fecha_de_nacimiento": "13213",
+      "departamento": "123123"
+    }
+  ]
+}

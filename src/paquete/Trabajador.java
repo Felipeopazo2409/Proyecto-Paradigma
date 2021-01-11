@@ -68,6 +68,11 @@ public class Trabajador {
 		return departamento;
 	}
 	
+	public String getSalario_String() {
+		String salario_string = String.valueOf(salario);
+		return salario_string.toString();
+	}
+	
 	
 	
 }

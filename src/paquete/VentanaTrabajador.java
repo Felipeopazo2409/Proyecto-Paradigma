@@ -42,6 +42,7 @@ public class VentanaTrabajador extends JFrame {
 	public JSONArray arreglo;
 	public int pos;
 	public int pos_eliminar;
+	public int cont = 0;
 
 	public VentanaTrabajador() {
 		panel = new PanelTrabajador();
@@ -77,14 +78,14 @@ public class VentanaTrabajador extends JFrame {
 	
 		// Eventos de los botones
 		
-		// pinchar boton para ingresar un trabajador
+		// pinchar boton para ir a panel ingresar un trabajador
 		panel.ingresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panelInsertarTrabajador);
 			}
 		});
 
-		// Pinchar Boton para modificar un trabajador
+		// Pinchar Boton para ir a panel modificar un trabajador
 		panel.modificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panelModificarTrabajador);
@@ -92,19 +93,19 @@ public class VentanaTrabajador extends JFrame {
 			}
 		});
 
-		// Pinchar Boton para Eliminar un trabajador
+		// Pinchar Boton para ir a panel Eliminar un trabajador
 		panel.eliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panelEliminarTrabajador);
 			}
 		});
-		// Pinchar Boton para Consultar Datos de un trabajador
+		// Pinchar Boton para ir a panel Consultar Datos de un trabajador
 		panel.consultar_datos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panelConsultarTrabajador);
 			}
 		});
-		// Pinchar Boton para Generar Liquidacion de sueldo
+		// Pinchar Boton para ir a panel Generar Liquidacion de sueldo
 		panel.generar_liquidacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panelLiquidacionTrabajador);
@@ -112,9 +113,7 @@ public class VentanaTrabajador extends JFrame {
 		});
 	}
 
-
-	
-	private void volver_atras() {
+	private void volver_atras() {//Eventos para llegar al menú principal
 		panelInsertarTrabajador.cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollpane.setViewportView(panel);
@@ -163,8 +162,9 @@ public class VentanaTrabajador extends JFrame {
 
 	}
 
-	private void insertarTrabajadores() {
-
+	private void insertarTrabajadores()  {
+		int rut;
+		int salario;
 		String nombre = panelInsertarTrabajador.campoNombre.getText();
 		String apellidoP = panelInsertarTrabajador.campoApellidoPaterno.getText();
 		String apellidoM = panelInsertarTrabajador.campoApellidoMaterno.getText();
@@ -173,14 +173,32 @@ public class VentanaTrabajador extends JFrame {
 		String tipo_contrato = panelInsertarTrabajador.contrato.getSelectedItem().toString();
 		String obtener_salario = panelInsertarTrabajador.campoSalario.getText();
 		String departamento = panelInsertarTrabajador.campoDepartamento.getText();
-		int rut = Integer.parseInt(obtener_rut);
-		int salario = Integer.parseInt(obtener_salario);
+		rut = Integer.parseInt(obtener_rut);
+		salario = Integer.parseInt(obtener_salario);
 		System.out.println("Salario: "+salario);
 		trabajador = new Trabajador(nombre, apellidoP, apellidoM, rut, fecha, tipo_contrato, salario, departamento);
 		lista_trabajadores.add(trabajador);
-
-
+		
+		arreglo.put(cont, trabajador);
+		cont++;
+		
+		FileWriter file;
+		Gson gson = new Gson();
+		String json = gson.toJson(arreglo);
+		try {
+			file = new FileWriter("Trabajadores.json");
+			file.write(json);
+			file.flush();
+			file.close();
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
+	
+	
+	
 
 	private void modificar_informacion() {
 		
@@ -197,9 +215,8 @@ public class VentanaTrabajador extends JFrame {
 						panelModificarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
 						panelModificarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
 						panelModificarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
-						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
 						panelModificarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
-						panelModificarTrabajador.campoSalario.setText(salario);
+						panelModificarTrabajador.campoSalario.setText(lista_trabajadores.get(i).getSalario_String());
 						panelModificarTrabajador.campoDepartamento.setText(lista_trabajadores.get(i).getDepartamento());
 					}
 				}
@@ -268,7 +285,7 @@ public class VentanaTrabajador extends JFrame {
 						panelEliminarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
 						panelEliminarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
 						panelEliminarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
-						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
+						String salario = Integer.toString(lista_trabajadores.get(i).getSalario());
 						panelEliminarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
 						panelEliminarTrabajador.camposalario.setText(salario);
 						panelEliminarTrabajador.campodepartamento.setText(lista_trabajadores.get(i).getDepartamento());
@@ -319,11 +336,21 @@ public class VentanaTrabajador extends JFrame {
 						panelConsultarTrabajador.campoApellidoPaterno.setEditable(false);
 						
 						panelConsultarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
+						panelConsultarTrabajador.campoApellidoMaterno.setEditable(false);
+						
 						panelConsultarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
+						panelConsultarTrabajador.campoNacimiento.setEditable(false);
+						
 						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
+						
 						panelConsultarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
+						panelConsultarTrabajador.campo_contrato.setEditable(false);
+						
 						panelConsultarTrabajador.camposalario.setText(salario);;
+						panelConsultarTrabajador.camposalario.setEditable(false);
+						
 						panelConsultarTrabajador.campodepartamento.setText(lista_trabajadores.get(i).getDepartamento());
+						panelConsultarTrabajador.campodepartamento.setEditable(false);
 					}
 				}
 
