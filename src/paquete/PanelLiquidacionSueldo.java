@@ -28,14 +28,16 @@ public class PanelLiquidacionSueldo extends JPanel {
 		botones();
 		liquidacion();
 	}
-	private void liquidacion () {
+
+	private void liquidacion() {
 		calcular_salario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				liquidacionSueldo();
-				JOptionPane.showMessageDialog(null, "hola hola");
+
 			}
 		});
 	}
+
 	private void labels() {
 		titulo = new JLabel("Liquidacion de Sueldo");
 		titulo.setBounds(300, 80, 400, 40);
@@ -70,12 +72,16 @@ public class PanelLiquidacionSueldo extends JPanel {
 
 	private void liquidacionSueldo() {
 		double salario = Integer.parseInt(campo_salario.getText()) + 30000;
+		System.out.println("Salario: " + salario);
 		double afp = 0.1 * salario;
 		double sistema_pension = 0.07 * salario;
+		double beneficio_full_time = 80000;
 		if (contrato.getSelectedItem().toString() == "Full-Time") {
-			System.out.println("El salario es: " + (salario - afp - sistema_pension + (4000 * 20)));
+
+			JOptionPane.showMessageDialog(null,
+					"El salario es: " + (salario + beneficio_full_time - sistema_pension - afp));
 		} else {
-			System.out.println("El salario es: " + (salario - afp - sistema_pension));
+			JOptionPane.showMessageDialog(null, "El salario es: " + (salario - afp - sistema_pension));
 		}
 	}
 
