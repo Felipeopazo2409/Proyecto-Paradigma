@@ -30,6 +30,7 @@ import org.json.simple.parser.ParseException;
 import com.google.gson.Gson;
 
 public class VentanaTrabajador extends JFrame {
+	
 	public PanelTrabajador panel;
 	private JScrollPane scrollpane;
 	public PanelInsertarTrabajador panelInsertarTrabajador;
@@ -38,14 +39,18 @@ public class VentanaTrabajador extends JFrame {
 	private PanelConsultarDatos panelConsultarTrabajador;
 	private PanelLiquidacionSueldo panelLiquidacionTrabajador;
 	public Trabajador trabajador;
-	public ArrayList<Trabajador> lista_trabajadores = new ArrayList();
+	//public ArrayList<Trabajador> lista_trabajadores = new ArrayList();
+	public JSONObject lista_trabajadores = new JSONObject();
+	
 	public JSONArray arreglo;
 	public int pos;
 	public int pos_eliminar;
 	public int cont = 0;
-
-	public VentanaTrabajador() {
+	public int largo = 0;
+	
+	public VentanaTrabajador()  {
 		panel = new PanelTrabajador();
+		
 		arreglo = new JSONArray();
 		setSize(780, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,7 +64,8 @@ public class VentanaTrabajador extends JFrame {
 		modificar_informacion();
 		eliminar_trabajador();
 		consultar_datos();
-	
+		
+		
 	}
 	private void Inicializar() {
 		scrollpane = new JScrollPane();
@@ -175,30 +181,15 @@ public class VentanaTrabajador extends JFrame {
 		String departamento = panelInsertarTrabajador.campoDepartamento.getText();
 		rut = Integer.parseInt(obtener_rut);
 		salario = Integer.parseInt(obtener_salario);
-		System.out.println("Salario: "+salario);
 		trabajador = new Trabajador(nombre, apellidoP, apellidoM, rut, fecha, tipo_contrato, salario, departamento);
-		lista_trabajadores.add(trabajador);
+		lista_trabajadores.put("trabajadores", trabajador);
 		
-		arreglo.put(cont, trabajador);
-		cont++;
+		arreglo.put(trabajador);
+
 		
-		FileWriter file;
-		Gson gson = new Gson();
-		String json = gson.toJson(arreglo);
-		try {
-			file = new FileWriter("Trabajadores.json");
-			file.write(json);
-			file.flush();
-			file.close();
-			
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
+		FileUtil.write(arreglo);
 		
 	}
-	
-	
-	
 
 	private void modificar_informacion() {
 		
@@ -206,22 +197,25 @@ public class VentanaTrabajador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String obtener_rut = panelModificarTrabajador.campoRut.getText();
 				int rut = Integer.parseInt(obtener_rut);
-				boolean encontrado = false;
-				for(int i=0;i<lista_trabajadores.size();i++) {
-					if(lista_trabajadores.get(i).getRut()== rut ) {
-						pos = i;
-						encontrado = true;
-						panelModificarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
-						panelModificarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
-						panelModificarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
-						panelModificarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
-						panelModificarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
-						panelModificarTrabajador.campoSalario.setText(lista_trabajadores.get(i).getSalario_String());
-						panelModificarTrabajador.campoDepartamento.setText(lista_trabajadores.get(i).getDepartamento());
-					}
+				
+				try {
+					arreglo = FileUtil.read();
+				} catch (IOException | ParseException e1) {
+					// TODO Bloque catch generado automáticamente
+					e1.printStackTrace();
 				}
-		
-				if (encontrado == true) {
+				
+				JSONObject trab = trabajador.getTrabajadorByRut(arreglo, rut);
+				
+				if (trab != null) {
+					panelModificarTrabajador.campoNombre.setText(trab.get("nombre").toString());
+					panelModificarTrabajador.campoApellidoPaterno.setText(trab.get("nombre").toString());
+					panelModificarTrabajador.campoApellidoMaterno.setText(trab.get("nombre").toString());
+					panelModificarTrabajador.campoNacimiento.setText(trab.get("nombre").toString());
+					panelModificarTrabajador.campo_contrato.setText(trab.get("nombre").toString());
+					panelModificarTrabajador.campoSalario.setText(trab.get("nombre").toString());
+					panelModificarTrabajador.campoDepartamento.setText(trab.get("nombre").toString());
+			
 					JOptionPane.showMessageDialog(null,"Trabajador Encontrado exitosamente");
 				}else {
 					JOptionPane.showMessageDialog(null,"Error al encontrar trabajador,Intente Nuevamente");
@@ -246,15 +240,21 @@ public class VentanaTrabajador extends JFrame {
 				int rut = Integer.parseInt(obtener_rut);
 				int salario = Integer.parseInt(obtener_salario);
 				
-				//Modifico la informacion en el indice pos
 				
-				lista_trabajadores.get(pos).setNombre(nombre);
-				lista_trabajadores.get(pos).setAPaterno(apellidoP);
-				lista_trabajadores.get(pos).setAMaterno(apellidoM);
-				lista_trabajadores.get(pos).setContrato(tipo_contrato);
-				lista_trabajadores.get(pos).setFecha(fecha);
-				lista_trabajadores.get(pos).setDepartamento(departamento);
-				lista_trabajadores.get(pos).setSalario(salario);
+				try {
+					arreglo = FileUtil.read();
+				} catch (IOException | ParseException e1) {
+					// TODO Bloque catch generado automáticamente si falla al leer el archivo
+					e1.printStackTrace();
+				}
+				
+				trabajador.deleteTrabajadorByRut(arreglo, rut);
+				
+				trabajador = new Trabajador(nombre, apellidoP, apellidoM, rut, fecha, tipo_contrato, salario, departamento);
+				//lista_trabajadores.put("trabajadores", trabajador);
+				
+				arreglo.put(trabajador);
+				FileUtil.write(arreglo);
 				
 				//Mensaje De alerta
 				panelModificarTrabajador.campoNombre.setText("");
@@ -276,35 +276,41 @@ public class VentanaTrabajador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String obtener_rut = panelEliminarTrabajador.campo_rut.getText();
 				int rut = Integer.parseInt(obtener_rut);
-				boolean encontrado = false;
-				for (int i =0;i<lista_trabajadores.size();i++) {
-					if (lista_trabajadores.get(i).getRut()== rut) {
-						encontrado = true;
-						pos_eliminar = i;
-						panelEliminarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
-						panelEliminarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
-						panelEliminarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
-						panelEliminarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
-						String salario = Integer.toString(lista_trabajadores.get(i).getSalario());
-						panelEliminarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
-						panelEliminarTrabajador.camposalario.setText(salario);
-						panelEliminarTrabajador.campodepartamento.setText(lista_trabajadores.get(i).getDepartamento());
-					}
+				
+				try {
+					arreglo = FileUtil.read();
+				} catch (IOException | ParseException e1) {
+					// TODO Bloque catch generado automáticamente Si falla al leer el archivo
+					e1.printStackTrace();
 				}
-				if(encontrado == true) {
+				
+				arreglo = trabajador.deleteTrabajadorByRut(arreglo, rut);
+				
+				//arreglo.remove();
+				FileUtil.write(arreglo);
+				
+				JSONObject trab = trabajador.getTrabajadorByRut(arreglo, rut);
+				
+				if(trab != null) {
+					panelEliminarTrabajador.campoNombre.setText(trab.get("nombre").toString());
+					panelEliminarTrabajador.campoApellidoPaterno.setText(trab.get("nombre").toString());
+					panelEliminarTrabajador.campoApellidoMaterno.setText(trab.get("nombre").toString());
+					panelEliminarTrabajador.campoNacimiento.setText(trab.get("nombre").toString());
+					panelEliminarTrabajador.campo_contrato.setText(trab.get("nombre").toString());
+					panelEliminarTrabajador.camposalario.setText(trab.get("nombre").toString());
+					panelEliminarTrabajador.campodepartamento.setText(trab.get("nombre").toString());
+				
 					JOptionPane.showMessageDialog(null, "Se ha encontrado el trabajador");
 				}else {
 					JOptionPane.showMessageDialog(null, "El trabajador no existe");
 				}
-				
-				
-				
+					
 			}
 		});
 		
 		panelEliminarTrabajador.eliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lista_trabajadores.remove(pos_eliminar);
+				//lista_trabajadores.remove(pos_eliminar);
 				panelEliminarTrabajador.campoNombre.setText("");
 				panelEliminarTrabajador.campoApellidoPaterno.setText("");
 				panelEliminarTrabajador.campoApellidoMaterno.setText("");
@@ -313,6 +319,8 @@ public class VentanaTrabajador extends JFrame {
 				panelEliminarTrabajador.camposalario.setText("");
 				panelEliminarTrabajador.campodepartamento.setText("");
 				JOptionPane.showMessageDialog(null,"Trabajador eliminado exitosamente");
+				
+				FileUtil.write(arreglo);
 			}
 		});
 		
@@ -324,37 +332,50 @@ public class VentanaTrabajador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String obtener_rut = panelConsultarTrabajador.campo_rut.getText();
 				int rut = Integer.parseInt(obtener_rut);
-				boolean encontrado = false;
-				for(int i=0;i<lista_trabajadores.size();i++) {
-					if(lista_trabajadores.get(i).getRut()== rut ) {
-
-						encontrado = true;
-						panelConsultarTrabajador.campoNombre.setText(lista_trabajadores.get(i).getNombre());
-						panelConsultarTrabajador.campoNombre.setEditable(false);
-						
-						panelConsultarTrabajador.campoApellidoPaterno.setText(lista_trabajadores.get(i).getAPaterno());
-						panelConsultarTrabajador.campoApellidoPaterno.setEditable(false);
-						
-						panelConsultarTrabajador.campoApellidoMaterno.setText(lista_trabajadores.get(i).getAMaterno());
-						panelConsultarTrabajador.campoApellidoMaterno.setEditable(false);
-						
-						panelConsultarTrabajador.campoNacimiento.setText(lista_trabajadores.get(i).getFecha());
-						panelConsultarTrabajador.campoNacimiento.setEditable(false);
-						
-						String salario = String.valueOf(lista_trabajadores.get(i).getSalario());
-						
-						panelConsultarTrabajador.campo_contrato.setText(lista_trabajadores.get(i).getContrato());
-						panelConsultarTrabajador.campo_contrato.setEditable(false);
-						
-						panelConsultarTrabajador.camposalario.setText(salario);;
-						panelConsultarTrabajador.camposalario.setEditable(false);
-						
-						panelConsultarTrabajador.campodepartamento.setText(lista_trabajadores.get(i).getDepartamento());
-						panelConsultarTrabajador.campodepartamento.setEditable(false);
+				
+				try {
+					arreglo = FileUtil.read();
+				} catch (IOException | ParseException e1) {
+					// TODO Bloque catch generado automáticamente
+					e1.printStackTrace();
+				}
+				
+				System.out.println("arreglo: " + arreglo);
+				System.out.println("rut: " + rut);
+				
+				//JSONObject trab = trabajador.getTrabajadorByRut(arreglo, rut);
+				
+				JSONObject trab = null;
+				for(int i=0; i<arreglo.length(); i++) {
+					if(arreglo.getJSONObject(i).get("rut")==obtener_rut) {				
+						trab = (JSONObject) arreglo.getJSONObject(i).get("rut");
 					}
 				}
-
-				if (encontrado == true) {
+				
+				
+				if (trab != null) {
+					
+					panelConsultarTrabajador.campoNombre.setText(trab.get("nombre").toString());
+					panelConsultarTrabajador.campoNombre.setEditable(false);
+					
+					panelConsultarTrabajador.campoApellidoPaterno.setText(trab.get("nombre").toString());
+					panelConsultarTrabajador.campoApellidoPaterno.setEditable(false);
+					
+					panelConsultarTrabajador.campoApellidoMaterno.setText(trab.get("nombre").toString());
+					panelConsultarTrabajador.campoApellidoMaterno.setEditable(false);
+					
+					panelConsultarTrabajador.campoNacimiento.setText(trab.get("nombre").toString());
+					panelConsultarTrabajador.campoNacimiento.setEditable(false);
+					
+					panelConsultarTrabajador.campo_contrato.setText(trab.get("nombre").toString());
+					panelConsultarTrabajador.campo_contrato.setEditable(false);
+					
+					panelConsultarTrabajador.camposalario.setText(trab.get("nombre").toString());
+					panelConsultarTrabajador.camposalario.setEditable(false);
+					
+					panelConsultarTrabajador.campodepartamento.setText(trab.get("nombre").toString());
+					panelConsultarTrabajador.campodepartamento.setEditable(false);
+					
 					JOptionPane.showMessageDialog(null,"Trabajador Encontrado exitosamente");
 				}else {
 					JOptionPane.showMessageDialog(null,"Error al encontrar trabajador,Intente Nuevamente");
@@ -362,9 +383,12 @@ public class VentanaTrabajador extends JFrame {
 			}
 		});
 		
-		
-	}
+		}
 	
+		public int getcantidad_trabajadores() {
+			return largo;
+		}
+			
 	}
 	
 

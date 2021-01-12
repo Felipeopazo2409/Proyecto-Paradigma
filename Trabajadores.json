@@ -1,34 +1,28 @@
 {
-  "myArrayList": [
-    {
-      "nombre": "Felipe",
-      "apellido_paterno": "Cordova",
-      "apellido_materno": "Opazo",
-      "rut": 200880145,
-      "tipo_contrato": "Full-time",
-      "salario": 0,
-      "fecha_de_nacimiento": "24/09/1999",
-      "departamento": "Informatica"
-    },
-    {
-      "nombre": "Vicente ",
-      "apellido_paterno": "Ortiz",
-      "apellido_materno": "Matus ",
-      "rut": 131231,
-      "tipo_contrato": "Full-time",
-      "salario": 0,
-      "fecha_de_nacimiento": "312313",
-      "departamento": "123123"
-    },
-    {
-      "nombre": "Delnovio",
-      "apellido_paterno": "burgos",
-      "apellido_materno": "Alarcon",
-      "rut": 23123,
-      "tipo_contrato": "Full-time",
-      "salario": 0,
-      "fecha_de_nacimiento": "13213",
-      "departamento": "123123"
-    }
-  ]
+    "myArrayList": [
+        {
+            "map": {
+                "rut": 200880145,
+                "salario": 4000,
+                "apellido_paterno": "Córdova",
+                "apellido_materno": "Opazo",
+                "departamento": "Informatica",
+                "fecha_de_nacimiento": "24/09/1999",
+                "tipo_contrato": "Full-time",
+                "nombre": "Felipe"
+            }
+        },
+        {
+            "map": {
+                "rut": 209123912,
+                "salario": 4000,
+                "apellido_paterno": "Burgos",
+                "apellido_materno": "Alarcon",
+                "departamento": "Informatica",
+                "fecha_de_nacimiento": "01/11/2000",
+                "tipo_contrato": "Full-time",
+                "nombre": "Delnovio"
+            }
+        }
+    ]
 }

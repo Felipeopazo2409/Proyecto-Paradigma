@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
@@ -81,13 +82,13 @@ public class VentanaAdministrador extends JFrame {
 		nombres_departamentos = new ArrayList<String>();
 		mostrar_info.mostrar_lista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int y=250;
 				for(int i=0; i<lista_departamentos.size();i++) {
-					System.out.println("Departamento: "+(i+1));
-					System.out.println("N_Depto: "+lista_departamentos.get(i).getNumero_depto());
-					System.out.println("Nombre: "+lista_departamentos.get(i).getNombre());
-					System.out.println("Cantidad De trabajadores: "+lista_departamentos.get(i).getCantidad_trabajadores());
-					System.out.println("\n\n");
+					JLabel depto = new JLabel(lista_departamentos.get(i).getNombre());
+					depto.setBounds(140,y,200,40);
+					mostrar_info.add(depto);
 					nombres_departamentos.add(lista_departamentos.get(i).getNombre());
+					y+=40;
 				}
 			}
 		});
@@ -98,6 +99,9 @@ public class VentanaAdministrador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				llenar_lista();
 				JOptionPane.showMessageDialog(null, "Departamento Ingresado Exitosamente");
+				panel_insertar.campo1.setText("");
+				panel_insertar.campo2.setText("");
+				panel_insertar.campo3.setText("");
 			}
 		});
 	}
@@ -168,8 +172,10 @@ public class VentanaAdministrador extends JFrame {
 			}
 		});
 		
-
-		
+	}
+	
+	public int getCantidadDepartamentos() {
+		return lista_departamentos.size();
 	}
 	
 }

@@ -1,5 +1,10 @@
 package paquete;
 
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class Trabajador {
 	private String nombre;
 	private String apellido_paterno;
@@ -15,6 +20,7 @@ public class Trabajador {
 		this.apellido_materno = a_materno;
 		this.rut = rut;
 		this.tipo_contrato = tipo_contrato;
+		this.salario = salario;
 		this.fecha_de_nacimiento = fecha_nacimiento;
 		this.departamento = departamento;
 	}
@@ -68,11 +74,44 @@ public class Trabajador {
 		return departamento;
 	}
 	
-	public String getSalario_String() {
-		String salario_string = String.valueOf(salario);
-		return salario_string.toString();
+	public Integer getIndexByRut(JSONArray arr, Integer rut) {
+		if(arr != null) {
+			for(int i=0; i < arr.length(); i++) {
+				/*
+				if(arr.getJSONArray(i).getBoolean(index) == rut ) {				
+					return (JSONObject) lista_trabajadores.get("rut");
+				}
+				*/
+			}
+		}
+		return null;
 	}
 	
+	
+	public JSONObject getTrabajadorByRut(JSONArray lista_trabajadores, Integer rut) {
+		
+		System.out.println("getTrabajadorByRut");
+		for(int i=0; i<lista_trabajadores.length(); i++) {
+			System.out.println("lista_trabajadores.getJSONObject(i).get(\"rut\"): " + lista_trabajadores.getJSONObject(i).get("rut"));
+			if(lista_trabajadores.getJSONObject(i).get("rut") == rut ) {				
+				return (JSONObject) lista_trabajadores.getJSONObject(i).get("rut");
+			}
+		}
+		
+		return null;
+	}
+	
+	public JSONArray deleteTrabajadorByRut(JSONArray lista_trabajadores, Integer rut) {
+		if(lista_trabajadores != null) {
+			for(int i=0; i<lista_trabajadores.length(); i++) {
+				if(lista_trabajadores.getJSONObject(i).get("rut") == rut ) {				
+					lista_trabajadores.getJSONObject(i).remove("rut");
+				}
+			}
+			return lista_trabajadores;
+		}
+		return null;
+	}
 	
 	
 }

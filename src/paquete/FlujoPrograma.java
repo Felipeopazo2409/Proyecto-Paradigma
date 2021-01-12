@@ -2,8 +2,10 @@ package paquete;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import org.json.JSONArray;
+import org.json.simple.parser.ParseException;
 
 public class FlujoPrograma {
 	public VentanaPrincipal ventana_main;
@@ -23,11 +25,19 @@ public class FlujoPrograma {
 		
 		
 	}
-	public void CrearVentanas() {
+
+	
+	public void CrearVentanas()  {
+	    
 		ventana_main = new VentanaPrincipal();
 		ventana_admin = new VentanaAdministrador();
 		ventana_trabajadores = new VentanaTrabajador();
-		ventana_informacion_general = new VentanaInformacion();
+		int cantidad_depto = ventana_admin.getCantidadDepartamentos();
+		 int cantidad_trabajadores = ventana_trabajadores.getcantidad_trabajadores();
+		ventana_informacion_general = new VentanaInformacion(cantidad_depto,cantidad_trabajadores);
+		
+	   
+	
 	}
 	
 	public void funcionalidades_botones_ventana_main() {
@@ -76,26 +86,6 @@ public class FlujoPrograma {
 	
 	public void funcionalidades_botones_ventana_trabajadores() {
 	
-		ventana_trabajadores.panel.modificar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		ventana_trabajadores.panel.eliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		ventana_trabajadores.panel.consultar_datos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		ventana_trabajadores.panel.generar_liquidacion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		ventana_trabajadores.panel.volver_menu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventana_main.setVisible(true);
@@ -115,8 +105,4 @@ public class FlujoPrograma {
 			}
 		 });
 	}
-	
-
-	
-	
 }
